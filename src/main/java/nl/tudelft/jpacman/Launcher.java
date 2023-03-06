@@ -27,11 +27,10 @@ import nl.tudelft.jpacman.ui.*;
 @SuppressWarnings("PMD.TooManyMethods")
 public class Launcher {
 
+    public static String DYNAMIC_MAP = "";
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    public static String DYNAMIC_MAP ;
     private String levelMap = DYNAMIC_MAP;
-
     private PacManUI pacManUI;
     private Game game;
 
