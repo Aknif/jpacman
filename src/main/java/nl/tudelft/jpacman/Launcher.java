@@ -29,8 +29,9 @@ public class Launcher {
 
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    public static final String DEFAULT_MAP = "/board4.txt";
-    private String levelMap = DEFAULT_MAP;
+    public static String DYNAMIC_MAP ;
+    private String levelMap = DYNAMIC_MAP;
+
     private PacManUI pacManUI;
     private Game game;
 
