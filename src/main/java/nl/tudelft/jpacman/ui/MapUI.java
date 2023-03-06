@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class MapUI extends JFrame implements ActionListener {
-    private JButton scoreButton;
 
     public MapUI() {
         // Set the title of the window
@@ -37,12 +36,20 @@ public class MapUI extends JFrame implements ActionListener {
         JButton Map5Button = new JButton("Map 5");
         Map5Button.addActionListener(this);
 
+        JButton PervButton = new JButton("Perv");
+        PervButton.addActionListener(this);
+
+        JButton NextButton = new JButton("Next");
+        NextButton.addActionListener(this);
+
         // Add the JButton to the JPanel
         panel.add(Map1Button);
         panel.add(Map2Button);
         panel.add(Map3Button);
         panel.add(Map4Button);
         panel.add(Map5Button);
+        panel.add(PervButton);
+        panel.add(NextButton);
 
         // Add the JPanel to the window
         add(panel, BorderLayout.CENTER);
@@ -78,6 +85,15 @@ public class MapUI extends JFrame implements ActionListener {
             dispose();
             new Launcher().DYNAMIC_MAP = "/board5.txt";
             new Launcher().launch();
+        }
+        if (e.getActionCommand().equals("Perv")) {
+            dispose();
+            HomeUI homeUI = new HomeUI();
+        }
+        if (e.getActionCommand().equals("Next")) {
+            dispose();
+            DifficultyUI difficultyUI = new DifficultyUI();
+            // Goto Difficulty UI
         }
 
     }

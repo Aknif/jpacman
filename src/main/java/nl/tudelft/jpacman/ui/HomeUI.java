@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HomeUI extends JFrame implements ActionListener {
-    private JButton scoreButton;
 
     public HomeUI() {
         // Set the title of the window
@@ -21,13 +20,16 @@ public class HomeUI extends JFrame implements ActionListener {
         JPanel panel = new JPanel();
 
         // Create a new JButton and add an ActionListener to it
-        JButton startButton = new JButton("Start Game");
-        startButton.addActionListener(this);
+        JButton CasaulButton = new JButton("Casaul");
+        CasaulButton.addActionListener(this);
+        JButton EndlessButton = new JButton("Endless");
+        EndlessButton.addActionListener(this);
         JButton scoreButton = new JButton("Score");
         scoreButton.addActionListener(this);
 
         // Add the JButton to the JPanel
-        panel.add(startButton);
+        panel.add(CasaulButton);
+        panel.add(EndlessButton);
         panel.add(scoreButton);
 
         // Add the JPanel to the window
@@ -40,7 +42,11 @@ public class HomeUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Handle button clicks
-        if (e.getActionCommand().equals("Start Game")) {
+        if (e.getActionCommand().equals("Casaul")) {
+            dispose();
+            new MapUI();
+        }
+        if (e.getActionCommand().equals("Endless")) {
             dispose();
             new MapUI();
         }
