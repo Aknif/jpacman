@@ -8,96 +8,78 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import static nl.tudelft.jpacman.Launcher.DYNAMIC_MAP;
+
 public class MapUI extends JFrame implements ActionListener {
+    private JLabel mapLabel;
+    private JComboBox<String> mapComboBox;
+    private String[] mapOptions = {"Map1", "Map2", "Map3", "Map4", "Map5"};
+    private int mapLevel;
 
     public MapUI() {
         // Set the title of the window
         super("MapUI");
 
         // Set the size of the window
+        // Set the size of the window
         setSize(400, 300);
 
         // Create a new JPanel to hold the components
         JPanel panel = new JPanel();
 
-        // Create a new JButton and add an ActionListener to it
-        JButton Map1Button = new JButton("Map 1");
-        Map1Button.addActionListener(this);
+        // Initialize the difficulty level and add a JComboBox to select the level
+        mapLevel = 0;
+        mapLabel = new JLabel("Select Map:");
+        mapComboBox = new JComboBox<>(mapOptions);
+        mapComboBox.addActionListener(this);
 
-        JButton Map2Button = new JButton("Map 2");
-        Map2Button.addActionListener(this);
-
-        JButton Map3Button = new JButton("Map 3");
-        Map3Button.addActionListener(this);
-
-        JButton Map4Button = new JButton("Map 4");
-        Map4Button.addActionListener(this);
-
-        JButton Map5Button = new JButton("Map 5");
-        Map5Button.addActionListener(this);
-
-        JButton PervButton = new JButton("Perv");
-        PervButton.addActionListener(this);
-
-        JButton NextButton = new JButton("Next");
-        NextButton.addActionListener(this);
-
-        // Add the JButton to the JPanel
-        panel.add(Map1Button);
-        panel.add(Map2Button);
-        panel.add(Map3Button);
-        panel.add(Map4Button);
-        panel.add(Map5Button);
-        panel.add(PervButton);
-        panel.add(NextButton);
+        panel.add(mapLabel);
+        panel.add(mapComboBox);
+        add(panel, BorderLayout.CENTER);
 
         // Add the JPanel to the window
         add(panel, BorderLayout.CENTER);
 
+        JButton SelectButton = new JButton("Select");
+        SelectButton.addActionListener(this);
+        panel.add(SelectButton);
         // Make the window visible
         setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Handle button clicks
-        if (e.getActionCommand().equals("Map 1")) {
+        if (e.getActionCommand().equals("Select")) {
             dispose();
-            new Launcher().DYNAMIC_MAP = "/board.txt";
-            new Launcher().launch();
+            new DifficultyUI();
         }
-        if (e.getActionCommand().equals("Map 2")) {
-            dispose();
-            new Launcher().DYNAMIC_MAP = "/board2.txt";
-            new Launcher().launch();
+        // Handle user selection of the difficulty level
+        if (e.getSource() == mapComboBox) {
+            String selectedDifficulty = (String) mapComboBox.getSelectedItem();
+            if (selectedDifficulty.equals("Map1")) {
+                new Launcher().DYNAMIC_MAP = "/board.txt";
+                System.out.println(DYNAMIC_MAP);
+            }
+            if (selectedDifficulty.equals("Map2")) {
+                new Launcher().DYNAMIC_MAP = "/board2.txt";
+                System.out.println(DYNAMIC_MAP);
+            }
+            if (selectedDifficulty.equals("Map3")) {
+                new Launcher().DYNAMIC_MAP = "/board3.txt";
+                System.out.println(DYNAMIC_MAP);
+            }
+            if (selectedDifficulty.equals("Map4")) {
+                new Launcher().DYNAMIC_MAP = "/board4.txt";
+                System.out.println(DYNAMIC_MAP);
+            }
+            if (selectedDifficulty.equals("Map5")) {
+                new Launcher().DYNAMIC_MAP = "/board5.txt";
+                System.out.println(DYNAMIC_MAP);
+            }
         }
-        if (e.getActionCommand().equals("Map 3")) {
-            dispose();
-            new Launcher().DYNAMIC_MAP = "/board3.txt";
-            new Launcher().launch();
-        }
-        if (e.getActionCommand().equals("Map 4")) {
-            dispose();
-            new Launcher().DYNAMIC_MAP = "/board4.txt";
-            new Launcher().launch();
-        }
-        if (e.getActionCommand().equals("Map 5")) {
-            dispose();
-            new Launcher().DYNAMIC_MAP = "/board5.txt";
-            new Launcher().launch();
-        }
-        if (e.getActionCommand().equals("Perv")) {
-            dispose();
-            HomeUI homeUI = new HomeUI();
-        }
-        if (e.getActionCommand().equals("Next")) {
-            dispose();
-            DifficultyUI difficultyUI = new DifficultyUI();
-            // Goto Difficulty UI
-        }
-
-    }
-public static void main(String[] args){
-        MapUI mapUI = new MapUI();
     }
 }
+
+
+
+

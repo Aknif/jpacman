@@ -1,6 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
 import nl.tudelft.jpacman.Launcher;
+import org.checkerframework.checker.units.qual.Luminance;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -8,14 +9,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import static nl.tudelft.jpacman.Launcher.DYNAMIC_MAP;
+
 public class DifficultyUI extends JFrame implements ActionListener {
     private JLabel difficultyLabel;
     private JComboBox<String> difficultyComboBox;
     private String[] difficultyOptions = {"Easy", "Normal", "Hard"};
     private int difficultyLevel;
+
     public DifficultyUI() {
 // Set the title of the window
-        super("HomeUI");
+        super("DifficultyUI");
 
         // Set the size of the window
         setSize(400, 300);
@@ -42,16 +46,25 @@ public class DifficultyUI extends JFrame implements ActionListener {
         // Make the window visible
         setVisible(true);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Handle button clicks
         if (e.getActionCommand().equals("Select")) {
             dispose();
-            new Launcher().DYNAMIC_MAP = "/board.txt";
             new Launcher().launch();
         }
-    }
-    public static void main(String[] args){
-        DifficultyUI difficultyUI = new DifficultyUI();
+        // Handle user selection of the difficulty level
+        if (e.getSource() == difficultyComboBox) {
+            String selectedDifficulty = (String) difficultyComboBox.getSelectedItem();
+            if (selectedDifficulty.equals("Easy")) {
+                System.out.println("Easy");
+            }
+            if (selectedDifficulty.equals("Normal")) {
+                System.out.println("Normal");
+            }
+            if (selectedDifficulty.equals("Hard")) {
+                System.out.println("Hard");
+            }
+        }
     }
 }
