@@ -29,8 +29,9 @@ public class Launcher {
 
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    public static final String DEFAULT_MAP = "/board3.txt";
-    private String levelMap = DEFAULT_MAP;
+    public static String DYNAMIC_MAP ;//เพิ่มใหม่มา
+
+    private String levelMap = DYNAMIC_MAP;
     private PacManUI pacManUI;
     private Game game;
 
@@ -177,11 +178,12 @@ public class Launcher {
      * Creates and starts a JPac-Man game.
      */
     public void launch() {
-        makeGame();
+         makeGame();
         PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame());
         pacManUI.start();
+
     }
 
     /**

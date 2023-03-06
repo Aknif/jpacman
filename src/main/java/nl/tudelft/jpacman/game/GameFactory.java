@@ -4,6 +4,7 @@ import nl.tudelft.jpacman.level.Level;
 import nl.tudelft.jpacman.level.PlayerFactory;
 import nl.tudelft.jpacman.points.PointCalculator;
 
+
 /**
  * Factory that provides Game objects.
  *
