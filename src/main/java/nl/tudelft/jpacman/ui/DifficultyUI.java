@@ -18,7 +18,7 @@ public class DifficultyUI extends JFrame implements ActionListener {
         super("HomeUI");
 
         // Set the size of the window
-        setSize(400, 300);
+        setSize(800, 600);
 
         // Create a new JPanel to hold the components
         JPanel panel = new JPanel();

@@ -9,6 +9,7 @@ public class ImageUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("My UI");
 
+        frame.setLocationRelativeTo(null);
         ImageIcon icon = new ImageIcon("src/main/resources/PACMANBG.png");
         JLabel label = new JLabel(icon);
         label.setBounds(0, 0, 800, 600);

@@ -14,49 +14,45 @@ public class HomeUI extends JFrame implements ActionListener {
         super("HomeUI");
 
         // Set the size of the window
-        setSize(400, 300);
+        JFrame frame = new JFrame();
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("My UI");
+        frame.setLocationRelativeTo(null);
 
-        // Create a new JPanel to hold the components
-        JPanel panel = new JPanel();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - getWidth()) / 2;
+        int y = (screenSize.height - getHeight()) / 2;
+        setLocation(x, y);
 
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        ImageIcon icon = new ImageIcon("src/main/resources/PACMANBG.png");
+        JLabel label = new JLabel(icon);
+        label.setBounds(0, 0, 800, 600);
+        frame.add(label);
 
-        // Create a new JButton and add an ActionListener to it
-        JButton CasaulButton = new JButton("Casual");
-        CasaulButton.addActionListener(this);
+        // Create and customize the button
+        JButton CasualButton = new JButton("Casual");
+        CasualButton.setBounds(250, 175, 100, 50);
+        CasualButton.addActionListener(this);
+
         JButton EndlessButton = new JButton("Endless");
+        EndlessButton.setBounds(250, 175, 100, 50);
         EndlessButton.addActionListener(this);
-        JButton scoreButton = new JButton("Score");
-        scoreButton.addActionListener(this);
 
-        CasaulButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        EndlessButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        scoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton ScoreButton = new JButton("Score");
+        ScoreButton.setBounds(250, 175, 100, 50);
+        ScoreButton.addActionListener(this);
 
-        // Set the maximum size of each button to the same value
-        Dimension maxButtonSize = new Dimension(80, 30);
-        CasaulButton.setMaximumSize(maxButtonSize);
-        EndlessButton.setMaximumSize(maxButtonSize);
-        scoreButton.setMaximumSize(maxButtonSize);
+        // Create a JPanel with FlowLayout to center the button
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(CasualButton);
+        buttonPanel.add(EndlessButton);
+        buttonPanel.add(ScoreButton);
 
-        // Add the JButton to the JPanel
-        panel.add(Box.createVerticalStrut(50));
-        panel.add(CasaulButton);
-        panel.add(Box.createVerticalStrut(10));
-        panel.add(EndlessButton);
-        panel.add(Box.createVerticalStrut(10));
-        panel.add(scoreButton);
-        panel.add(Box.createVerticalStrut(10));
+        // Add the panel to the frame
+        frame.add(buttonPanel);
 
-        // Add the JPanel to the window
-        add(panel, BorderLayout.CENTER);
-
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-        setLocationRelativeTo(null);
-
-        // Make the window visible
-        setVisible(true);
+        frame.setVisible(true);
     }
 
     @Override
