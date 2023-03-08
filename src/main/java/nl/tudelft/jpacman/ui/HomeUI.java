@@ -16,38 +16,63 @@ public class HomeUI extends JFrame implements ActionListener {
         // Set the size of the window
         JFrame frame = new JFrame();
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("My UI");
         frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
 
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (screenSize.width - getWidth()) / 2;
-        int y = (screenSize.height - getHeight()) / 2;
-        setLocation(x, y);
-
-        ImageIcon icon = new ImageIcon("src/main/resources/PACMANBG.png");
+        //add bg image
+        ImageIcon icon = new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png");
         JLabel label = new JLabel(icon);
-        label.setBounds(0, 0, 800, 600);
+        label.setBounds(0, 0, icon.getIconWidth(), icon.getIconHeight());
         frame.add(label);
 
+
+
         // Create and customize the button
-        JButton CasualButton = new JButton("Casual");
-        CasualButton.setBounds(250, 175, 100, 50);
-        CasualButton.addActionListener(this);
+        ImageIcon iconButton = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
+        JButton CasualButton = new JButton(iconButton);
 
-        JButton EndlessButton = new JButton("Endless");
-        EndlessButton.setBounds(250, 175, 100, 50);
-        EndlessButton.addActionListener(this);
+        CasualButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new MapUI();
+            }
+        });
 
-        JButton ScoreButton = new JButton("Score");
-        ScoreButton.setBounds(250, 175, 100, 50);
-        ScoreButton.addActionListener(this);
+        ImageIcon iconButton_Endless = new ImageIcon("src/main/resources/Button 266, 58 px/endless _ 266, 58 px.jpg");
+        JButton EndlessButton = new JButton(iconButton_Endless);
+        EndlessButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new MapUI();
+            }
+        });
+
+        ImageIcon iconButton_Score = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
+        JButton ScoreButton = new JButton(iconButton_Score);
+        ScoreButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new MapUI();
+            }
+        });
 
         // Create a JPanel with FlowLayout to center the button
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(Box.createVerticalStrut(250));
         buttonPanel.add(CasualButton);
+        buttonPanel.add(Box.createVerticalStrut(10));
         buttonPanel.add(EndlessButton);
+        buttonPanel.add(Box.createVerticalStrut(10));
         buttonPanel.add(ScoreButton);
+
+
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+
+        CasualButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        EndlessButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        ScoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Add the panel to the frame
         frame.add(buttonPanel);
@@ -55,23 +80,9 @@ public class HomeUI extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Handle button clicks
-        if (e.getActionCommand().equals("Casual")) {
-            dispose();
-            new MapUI();
-        }
-        if (e.getActionCommand().equals("Endless")) {
-            dispose();
-            new MapUI();
-        }
-        if (e.getActionCommand().equals("Score")) {
-            // Create a new ScoreUI object and display it
-            ScoreUI scoreUI = new ScoreUI();
-            scoreUI.setVisible(true);
-            // Close the HomeUI window if needed
-            dispose();
-        }
+
     }
 }

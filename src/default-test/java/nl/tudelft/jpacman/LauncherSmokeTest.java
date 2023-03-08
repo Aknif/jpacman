@@ -40,7 +40,7 @@ public class LauncherSmokeTest {
     /**
      * Quit the user interface when we're done.
      */
-    @AfterEach
+    //@AfterEach
     void tearDown() {
         launcher.dispose();
     }
@@ -98,6 +98,7 @@ public class LauncherSmokeTest {
         game.stop();
         assertThat(game.isInProgress()).isFalse();
     }
+
 
     /**
      * Make number of moves in given direction.
