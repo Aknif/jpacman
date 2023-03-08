@@ -30,7 +30,7 @@ public class Launcher {
     public static String DYNAMIC_MAP = "";
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    private String levelMap = DYNAMIC_MAP;
+    public String levelMap = DYNAMIC_MAP;
     private PacManUI pacManUI;
     private Game game;
 
