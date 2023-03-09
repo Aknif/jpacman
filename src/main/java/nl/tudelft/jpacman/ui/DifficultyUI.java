@@ -3,7 +3,7 @@ package nl.tudelft.jpacman.ui;
 import nl.tudelft.jpacman.Launcher;
 
 import javax.swing.*;
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -13,6 +13,7 @@ public class DifficultyUI extends JFrame implements ActionListener {
     private JComboBox<String> difficultyComboBox;
     private String[] difficultyOptions = {"Easy", "Normal", "Hard"};
     private int difficultyLevel;
+
     public DifficultyUI() {
 // Set the title of the window
         super("HomeUI");
@@ -46,7 +47,15 @@ public class DifficultyUI extends JFrame implements ActionListener {
         panel.add(SelectButton);
         // Make the window visible
         setVisible(true);
+
+        // Add the JPanel to the window
+        add(panel, BorderLayout.CENTER);
+
+        // Make the window visible
+        setVisible(true);
+
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // Handle button clicks
@@ -59,6 +68,7 @@ public class DifficultyUI extends JFrame implements ActionListener {
             new MapUI();
         }
     }
+
     public static void main(String[] args){
         DifficultyUI difficultyUI = new DifficultyUI();
     }

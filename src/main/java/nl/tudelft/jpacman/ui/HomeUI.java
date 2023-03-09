@@ -22,51 +22,48 @@ public class HomeUI extends JFrame implements ActionListener {
         frame.setResizable(false);
 
         //add bg image
-        ImageIcon icon = new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png");
+        ImageIcon icon = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\pacman_bg\\Main_bg _ 800, 600 px.png");
         JLabel label = new JLabel(icon);
         label.setBounds(0, 0, icon.getIconWidth(), icon.getIconHeight());
         frame.add(label);
 
-
-
         // Create and customize the button
-        ImageIcon iconButton = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
+        ImageIcon iconButton = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 266, 58 px\\casual _ 266, 58 px.jpg");
         JButton CasualButton = new JButton(iconButton);
-
         CasualButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new MapUI();
+                NewMapUI newMapUI = new NewMapUI();
+                newMapUI.setVisible(true);
             }
         });
 
-        ImageIcon iconButton_Endless = new ImageIcon("src/main/resources/Button 266, 58 px/endless _ 266, 58 px.jpg");
+        ImageIcon iconButton_Endless = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 266, 58 px\\endless _ 266, 58 px.jpg");
         JButton EndlessButton = new JButton(iconButton_Endless);
         EndlessButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new MapUI();
+                NewMapUI newMapUI = new NewMapUI();
+                newMapUI.setVisible(true);
             }
         });
 
-        ImageIcon iconButton_Score = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
+        ImageIcon iconButton_Score = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 266, 58 px\\score _ 266, 58 px.jpg");
         JButton ScoreButton = new JButton(iconButton_Score);
         ScoreButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new MapUI();
+                ScoreUI scoreUI = new ScoreUI();
+                scoreUI.setVisible(true);
             }
         });
 
         // Create a JPanel with FlowLayout to center the button
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(Box.createVerticalStrut(250));
+        buttonPanel.add(Box.createVerticalStrut(230));
         buttonPanel.add(CasualButton);
-        buttonPanel.add(Box.createVerticalStrut(10));
+        buttonPanel.add(Box.createVerticalStrut(25));
         buttonPanel.add(EndlessButton);
-        buttonPanel.add(Box.createVerticalStrut(10));
+        buttonPanel.add(Box.createVerticalStrut(25));
         buttonPanel.add(ScoreButton);
-
 
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 

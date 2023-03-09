@@ -51,7 +51,6 @@ public class MapUI extends JFrame implements ActionListener {
         JButton NextButton = new JButton("Next");
         NextButton.addActionListener(this);
 
-
         // Add the JButton to the JPanel
         panel.add(map1);
         panel.add(map2);

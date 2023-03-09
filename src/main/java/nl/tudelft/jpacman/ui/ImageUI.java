@@ -10,7 +10,7 @@ public class ImageUI {
         frame.setTitle("My UI");
 
         frame.setLocationRelativeTo(null);
-        ImageIcon icon = new ImageIcon("src/main/resources/PACMANBG.png");
+        ImageIcon icon = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\pacman_bg\\Main_bg _ 800, 600 px.png");
         JLabel label = new JLabel(icon);
         label.setBounds(0, 0, 800, 600);
         frame.add(label);
