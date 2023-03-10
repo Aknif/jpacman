@@ -13,8 +13,22 @@ public class NewMapUI extends JFrame implements ActionListener {
     private JLabel imageLabel;
     private ImageIcon map1Image, map2Image, map3Image, map4Image, map5Image;
 
+
+
+    public int stage = 0;
+
+    public int getStage() {
+        return stage;
+    }
+
+    public void setStage(int stage) {
+        this.stage = stage;
+    }
+
+
     public NewMapUI() {
         // Set up the JFrame
+
 
         setTitle("Stage Select");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,7 +125,7 @@ public class NewMapUI extends JFrame implements ActionListener {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                newDifficultyUI difficultyUI = new newDifficultyUI();
+                newDifficultyUI difficultyUI = new newDifficultyUI(stage);
                 difficultyUI.setVisible(true);
                 dispose();
             }
@@ -123,7 +137,8 @@ public class NewMapUI extends JFrame implements ActionListener {
         // Change the image based on which button was clicked
         if (e.getSource() == map1Button) {
             imageLabel.setIcon(map1Image);
-            new Launcher().DYNAMIC_MAP = "/board.txt";
+            //new Launcher().DYNAMIC_MAP = "/boardN.txt";
+            setStage(1);
             map1Button.setBackground(Color.GREEN);
             map2Button.setBackground(null);
             map3Button.setBackground(null);
@@ -131,7 +146,8 @@ public class NewMapUI extends JFrame implements ActionListener {
             map5Button.setBackground(null);
         } else if (e.getSource() == map2Button) {
             imageLabel.setIcon(map2Image);
-            new Launcher().DYNAMIC_MAP = "/board2.txt";
+            //new Launcher().DYNAMIC_MAP = "/board2N.txt";
+            setStage(2);
             map2Button.setBackground(Color.GREEN);
             map1Button.setBackground(null);
             map3Button.setBackground(null);
@@ -139,7 +155,8 @@ public class NewMapUI extends JFrame implements ActionListener {
             map5Button.setBackground(null);
         } else if (e.getSource() == map3Button) {
             imageLabel.setIcon(map3Image);
-            new Launcher().DYNAMIC_MAP = "/board3.txt";
+            //new Launcher().DYNAMIC_MAP = "/board3N.txt";
+            setStage(3);
             map3Button.setBackground(Color.GREEN);
             map1Button.setBackground(null);
             map2Button.setBackground(null);
@@ -147,16 +164,18 @@ public class NewMapUI extends JFrame implements ActionListener {
             map5Button.setBackground(null);
         } else if (e.getSource() == map4Button) {
             imageLabel.setIcon(map4Image);
-            new Launcher().DYNAMIC_MAP = "/board4.txt";
+            //new Launcher().DYNAMIC_MAP = "/board4N.txt";
+            setStage(4);
             map4Button.setBackground(Color.GREEN);
             map1Button.setBackground(null);
             map3Button.setBackground(null);
             map2Button.setBackground(null);
             map5Button.setBackground(null);
-            new newDifficultyUI();
+
         } else if (e.getSource() == map5Button) {
             imageLabel.setIcon(map5Image);
-            new Launcher().DYNAMIC_MAP = "/board5.txt";
+            //new Launcher().DYNAMIC_MAP = "/board5N.txt";
+            setStage(5);
             map5Button.setBackground(Color.GREEN);
             map1Button.setBackground(null);
             map2Button.setBackground(null);

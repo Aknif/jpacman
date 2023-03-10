@@ -13,7 +13,10 @@ public class newDifficultyUI extends JFrame implements ActionListener {
     private JLabel imageLabel;
     private ImageIcon easyImage, normalImage, hardImage;
 
-    public newDifficultyUI() {
+
+
+
+    public newDifficultyUI(int mapSE) {
         // Set up the JFrame
         setTitle("Difficulty");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,14 +40,42 @@ public class newDifficultyUI extends JFrame implements ActionListener {
         easyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ///Adjust the difficulty
+                if(mapSE==1){
+                    new Launcher().DYNAMIC_MAP = "/board1E.txt";
+                }
+                else if(mapSE==2){
+                    new Launcher().DYNAMIC_MAP = "/board2E.txt";
+                }
+                else if(mapSE==3){
+                    new Launcher().DYNAMIC_MAP = "/board3E.txt";
+                }
+                else if(mapSE==4){
+                    new Launcher().DYNAMIC_MAP = "/board4E.txt";
+                }
+                else if(mapSE==5){
+                    new Launcher().DYNAMIC_MAP = "/board5E.txt";
+                }
             }
         });
         normalButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/normal _ 266, 58 px.jpg"));
         normalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ///Adjust the difficulty
+                if(mapSE==1){
+                    new Launcher().DYNAMIC_MAP = "/board1N.txt";
+                }
+                else if(mapSE==2){
+                    new Launcher().DYNAMIC_MAP = "/board2N.txt";
+                }
+                else if(mapSE==3){
+                    new Launcher().DYNAMIC_MAP = "/board3N.txt";
+                }
+                else if(mapSE==4){
+                    new Launcher().DYNAMIC_MAP = "/board4N.txt";
+                }
+                else if(mapSE==5){
+                    new Launcher().DYNAMIC_MAP = "/board5N.txt";
+                }
             }
         });
         hardButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg"));
@@ -52,7 +83,22 @@ public class newDifficultyUI extends JFrame implements ActionListener {
         hardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ///Adjust the difficulty
+                if(mapSE==1){
+                    new Launcher().DYNAMIC_MAP = "/board1H.txt";
+                    System.out.println("1");
+                }
+                if(mapSE==2){
+                    new Launcher().DYNAMIC_MAP = "/board2H.txt";
+                }
+                if(mapSE==3){
+                    new Launcher().DYNAMIC_MAP = "/board3H.txt";
+                }
+                if(mapSE==4){
+                    new Launcher().DYNAMIC_MAP = "/board4H.txt";
+                }
+                if(mapSE==5){
+                    new Launcher().DYNAMIC_MAP = "/board5H.txt";
+                }
             }
         });
 
@@ -141,7 +187,7 @@ public class newDifficultyUI extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        newDifficultyUI frame = new newDifficultyUI();
+        newDifficultyUI frame = new newDifficultyUI(1);
         frame.setVisible(true);
     }
 }

@@ -1,7 +1,5 @@
 package nl.tudelft.jpacman.ui;
 
-import nl.tudelft.jpacman.Launcher;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,6 +28,7 @@ public class HomeUI extends JFrame implements ActionListener {
         // Create and customize the button
         ImageIcon iconButton = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
         JButton CasualButton = new JButton(iconButton);
+
         CasualButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
