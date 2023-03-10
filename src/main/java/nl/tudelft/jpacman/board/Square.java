@@ -77,7 +77,7 @@ public abstract class Square {
      * @param occupant
      *            The unit to occupy this square.
      */
-    void put(Unit occupant) {
+    public void put(Unit occupant) {
         assert occupant != null;
         assert !occupants.contains(occupant);
 
@@ -90,7 +90,7 @@ public abstract class Square {
      * @param occupant
      *            The unit to be removed from this square.
      */
-    void remove(Unit occupant) {
+    public void remove(Unit occupant) {
         assert occupant != null;
         occupants.remove(occupant);
     }
