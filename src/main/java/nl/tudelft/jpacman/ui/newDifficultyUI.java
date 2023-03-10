@@ -85,7 +85,6 @@ public class newDifficultyUI extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 if(mapSE==1){
                     new Launcher().DYNAMIC_MAP = "/board1H.txt";
-                    System.out.println("1");
                 }
                 if(mapSE==2){
                     new Launcher().DYNAMIC_MAP = "/board2H.txt";
