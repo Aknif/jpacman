@@ -40,6 +40,8 @@ public class HomeUI extends JFrame implements ActionListener {
 
         ImageIcon iconButton_Endless = new ImageIcon("src/main/resources/Button 266, 58 px/endless _ 266, 58 px.jpg");
         JButton EndlessButton = new JButton(iconButton_Endless);
+
+
         EndlessButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 NewMapUI newMapUI = new NewMapUI();
@@ -48,7 +50,7 @@ public class HomeUI extends JFrame implements ActionListener {
             }
         });
 
-        ImageIcon iconButton_Score = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
+        /*ImageIcon iconButton_Score = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
         JButton ScoreButton = new JButton(iconButton_Score);
         ScoreButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -57,7 +59,7 @@ public class HomeUI extends JFrame implements ActionListener {
                 frame.dispose();
             }
         });
-
+        */
         // Create a JPanel with FlowLayout to center the button
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(Box.createVerticalStrut(230));
@@ -65,13 +67,14 @@ public class HomeUI extends JFrame implements ActionListener {
         buttonPanel.add(Box.createVerticalStrut(25));
         buttonPanel.add(EndlessButton);
         buttonPanel.add(Box.createVerticalStrut(25));
-        buttonPanel.add(ScoreButton);
+
+        //buttonPanel.add(ScoreButton);
 
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
         CasualButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         EndlessButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        ScoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //ScoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Add the panel to the frame
         frame.add(buttonPanel);
