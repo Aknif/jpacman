@@ -19,8 +19,9 @@ public class newDifficultyUI extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
         // Load the image file into an ImageIcon
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\pacman_bg\\Difficulty_bg _ 800, 600 px.png");
+        ImageIcon imageIcon = new ImageIcon("src/main/resources/pacman_bg/Difficulty_bg _ 800, 600 px.png");
 
         // Create a new JLabel with the image as the icon
         JLabel backgroundLabel = new JLabel(imageIcon);
@@ -32,16 +33,51 @@ public class newDifficultyUI extends JFrame implements ActionListener {
         add(backgroundLabel);
 
         // Set up the buttons
-        easyButton = new JButton(new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Button 266, 58 px\\easy _ 266, 58 px.jpg"));
-        normalButton = new JButton(new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Button 266, 58 px\\normal _ 266, 58 px.jpg"));
-        hardButton = new JButton(new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Button 266, 58 px\\hard _ 266, 58 px.jpg"));
-        prevButton = new JButton(new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Button 116, 51 px\\perv _ 116, 51 px.jpg"));
-        nextButton = new JButton(new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Button 116, 51 px\\next _ 116, 51 px.jpg"));
+        easyButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/easy _ 266, 58 px.jpg"));
+        easyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ///Adjust the difficulty
+            }
+        });
+        normalButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/normal _ 266, 58 px.jpg"));
+        normalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ///Adjust the difficulty
+            }
+        });
+        hardButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg"));
 
+        hardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ///Adjust the difficulty
+            }
+        });
+
+        prevButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg"));
+        prevButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NewMapUI newMapUI = new NewMapUI();
+                newMapUI.setVisible(true);
+                dispose();
+            }
+        });
+
+        nextButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg"));
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Launcher().launch();
+                dispose();
+            }
+        });
         // Set up the image icons
-        easyImage = new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Description 316, 234 px\\easy.jpg");
-        normalImage = new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Description 316, 234 px\\normal.jpg");
-        hardImage = new ImageIcon("C:\\Users\\phudiskey\\Desktop\\Pacman2\\jpacman\\src\\main\\resources\\Description 316, 234 px\\hard.jpg");
+        easyImage = new ImageIcon("src/main/resources/Description 316, 234 px/easy.jpg");
+        normalImage = new ImageIcon("src/main/resources/Description 316, 234 px/normal.jpg");
+        hardImage = new ImageIcon("src/main/resources/Description 316, 234 px/hard.jpg");
 
         // Set up the image label
         imageLabel = new JLabel(easyImage);

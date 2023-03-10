@@ -15,12 +15,15 @@ public class NewMapUI extends JFrame implements ActionListener {
 
     public NewMapUI() {
         // Set up the JFrame
-        setTitle("Difficulty");
+
+        setTitle("Stage Select");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+
         // Load the image file into an ImageIcon
-        ImageIcon imageIcon = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\pacman_bg\\Map_bg _ 800, 600 px.png");
+        ImageIcon imageIcon = new ImageIcon("src/main/resources/pacman_bg/Map_bg _ 800, 600 px.png");
 
         // Create a new JLabel with the image as the icon
         JLabel backgroundLabel = new JLabel(imageIcon);
@@ -32,20 +35,20 @@ public class NewMapUI extends JFrame implements ActionListener {
         add(backgroundLabel);
 
         // Set up the buttons
-        map1Button = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\map 1 _ 116, 51 px.jpg"));
-        map2Button = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\map 2 _ 116, 51 px.jpg"));
-        map3Button = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\map 3 _ 116, 51 px.jpg"));
-        map4Button = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\map 4 _ 116, 51 px.jpg"));
-        map5Button = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\map 5 _ 116, 51 px.jpg"));
-        prevButton = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\perv _ 116, 51 px.jpg"));
-        nextButton = new JButton(new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Button 116, 51 px\\next _ 116, 51 px.jpg"));
+        map1Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 1 _ 116, 51 px.jpg"));
+        map2Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 2 _ 116, 51 px.jpg"));
+        map3Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 3 _ 116, 51 px.jpg"));
+        map4Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 4 _ 116, 51 px.jpg"));
+        map5Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 5 _ 116, 51 px.jpg"));
+        prevButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg"));
+        nextButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg"));
 
         // Set up the image icons
-        map1Image = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Map\\Map 1 _ 344, 315 px.jpg");
-        map2Image = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Map\\Map 2 _ 344, 315 px.jpg");
-        map3Image = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Map\\Map 3 _ 344, 315 px.jpg");
-        map4Image = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Map\\Map 4 _ 344, 315 px.jpg");
-        map5Image = new ImageIcon("D:\\Desktop\\Pac-Man\\jpacman\\src\\main\\resources\\Map\\Map 5 _ 344, 315 px.jpg");
+        map1Image = new ImageIcon("src/main/resources/Map/Map 1 _ 344, 315 px.jpg");
+        map2Image = new ImageIcon("src/main/resources/Map/Map 2 _ 344, 315 px.jpg");
+        map3Image = new ImageIcon("src/main/resources/Map/Map 3 _ 344, 315 px.jpg");
+        map4Image = new ImageIcon("src/main/resources/Map/Map 4 _ 344, 315 px.jpg");
+        map5Image = new ImageIcon("src/main/resources/Map/Map 5 _ 344, 315 px.jpg");
 
         // Set up the image label
         imageLabel = new JLabel(map1Image);
@@ -101,15 +104,16 @@ public class NewMapUI extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 HomeUI homeUI = new HomeUI();
-                homeUI.setVisible(true);
+                dispose();
             }
         });
 
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DifficultyUI difficultyUI = new DifficultyUI();
+                newDifficultyUI difficultyUI = new newDifficultyUI();
                 difficultyUI.setVisible(true);
+                dispose();
             }
         });
 
@@ -147,8 +151,9 @@ public class NewMapUI extends JFrame implements ActionListener {
             map4Button.setBackground(Color.GREEN);
             map1Button.setBackground(null);
             map3Button.setBackground(null);
-            map4Button.setBackground(null);
+            map2Button.setBackground(null);
             map5Button.setBackground(null);
+            new newDifficultyUI();
         } else if (e.getSource() == map5Button) {
             imageLabel.setIcon(map5Image);
             new Launcher().DYNAMIC_MAP = "/board5.txt";

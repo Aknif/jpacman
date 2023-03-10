@@ -73,7 +73,7 @@ public class PacManUI extends JFrame {
         assert buttons != null;
         assert keyMappings != null;
 
-        setSize(800, 600);
+        //setSize(1000, 800);
         setLocationRelativeTo(null);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

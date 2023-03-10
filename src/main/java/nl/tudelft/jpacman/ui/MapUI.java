@@ -27,6 +27,8 @@ public class MapUI extends JFrame implements ActionListener {
 
         // Create a new JPanel to hold the components
         JPanel panel = new JPanel();
+        setLocationRelativeTo(null);
+        setResizable(false);
 
         // Create a new JButton and add an ActionListener to it
 
