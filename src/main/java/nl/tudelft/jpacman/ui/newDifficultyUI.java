@@ -5,212 +5,189 @@ import nl.tudelft.jpacman.Launcher;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.*;
 
-public class newDifficultyUI extends JFrame implements ActionListener {
+public class newDifficultyUI extends JFrame {
 
-    private JButton easyButton, normalButton, hardButton, nextButton, prevButton;
-    private JLabel imageLabel;
-    private ImageIcon easyImage, normalImage, hardImage;
     private int defaultDiff = 1;
 
-    public newDifficultyUI(int mapSE) {
-        // Set up the JFrame
-        setTitle("Difficulty");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public newDifficultyUI(int stage) {
+
         setSize(800, 600);
-        setLayout(new BorderLayout());
+        setTitle("Difficulty Selection");
         setLocationRelativeTo(null);
-        // Load the image file into an ImageIcon
-        ImageIcon imageIcon = new ImageIcon("src/main/resources/pacman_bg/Difficulty_bg _ 800, 600 px.png");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        // Create a new JLabel with the image as the icon
-        JLabel backgroundLabel = new JLabel(imageIcon);
+        int frameWidth = getWidth();
+        int frameHeight = getHeight();
+        int buttonWidth = 226;
+        int buttonHeight = 58;
+        int buttonX = (frameWidth - buttonWidth) / 2;
+        int buttonY = (frameHeight - buttonHeight) / 2;
 
-        // Set the size and position of the label to fill the JFrame
-        backgroundLabel.setBounds(0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight());
+        ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/easy _ 266, 58 px.jpg");
+        ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/normal _ 266, 58 px.jpg");
+        ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg");
+        ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg");
+        ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
+        JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Difficulty_bg _ 800, 600 px.png"));
 
-        // Set the label as the content pane of the JFrame
-        add(backgroundLabel);
+        ImageIcon easyImage = new ImageIcon("src/main/resources/Description 316, 234 px/easy.jpg");
+        ImageIcon normalImage = new ImageIcon("src/main/resources/Description 316, 234 px/normal.jpg");
+        ImageIcon hardImage = new ImageIcon("src/main/resources/Description 316, 234 px/hard.jpg");
 
-        // Set up the buttons
-        easyButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/easy _ 266, 58 px.jpg"));
-        easyButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(mapSE==1){
-                    new Launcher().DYNAMIC_MAP = "/board1E.txt";
-                }
-                else if(mapSE==2){
-                    new Launcher().DYNAMIC_MAP = "/board2E.txt";
-                }
-                else if(mapSE==3){
-                    new Launcher().DYNAMIC_MAP = "/board3E.txt";
-                }
-                else if(mapSE==4){
-                    new Launcher().DYNAMIC_MAP = "/board4E.txt";
-                }
-                else if(mapSE==5){
-                    new Launcher().DYNAMIC_MAP = "/board5E.txt";
-                }
-                defaultDiff = 0;
+
+        JButton imageLabel = new JButton(normalImage);
+        imageLabel.setSize(344,315);
+        imageLabel.setBorderPainted(false);
+        imageLabel.setContentAreaFilled(false);
+        imageLabel.setFocusPainted(false);
+        imageLabel.setBounds(400, 150, 344, 315);
+        backgroundLabel.add(imageLabel);
+
+
+
+        JButton easyButton = new JButton(transparentIcon1);
+        easyButton.setBorderPainted(false); // Remove the border
+        easyButton.setContentAreaFilled(false); // Remove the background color
+        easyButton.setFocusPainted(false); // Remove the focus border
+
+        easyButton.addActionListener(e -> {
+            imageLabel.setIcon(easyImage);
+            if(stage==1){
+                new Launcher().DYNAMIC_MAP = "/board1E.txt";
             }
+            else if(stage==2){
+                new Launcher().DYNAMIC_MAP = "/board2E.txt";
+            }
+            else if(stage==3){
+                new Launcher().DYNAMIC_MAP = "/board3E.txt";
+            }
+            else if(stage==4){
+                new Launcher().DYNAMIC_MAP = "/board4E.txt";
+            }
+            else if(stage==5){
+                new Launcher().DYNAMIC_MAP = "/board5E.txt";
+            }
+            defaultDiff = 0;
         });
-        normalButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/normal _ 266, 58 px.jpg"));
-        normalButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(mapSE==1){
+
+        JButton normalButton = new JButton(transparentIcon2);
+        normalButton.setBorderPainted(false);
+        normalButton.setContentAreaFilled(false);
+        normalButton.setFocusPainted(false);
+
+        normalButton.addActionListener(e -> {
+            imageLabel.setIcon(normalImage);
+            if(stage==1){
+                new Launcher().DYNAMIC_MAP = "/board1N.txt";
+            }
+            else if(stage==2){
+                new Launcher().DYNAMIC_MAP = "/board2N.txt";
+            }
+            else if(stage==3){
+                new Launcher().DYNAMIC_MAP = "/board3N.txt";
+            }
+            else if(stage==4){
+                new Launcher().DYNAMIC_MAP = "/board4N.txt";
+            }
+            else if(stage==5){
+                new Launcher().DYNAMIC_MAP = "/board5N.txt";
+            }
+            defaultDiff = 0;
+        });
+
+        JButton hardButton = new JButton(transparentIcon3);
+        hardButton.setBorderPainted(false);
+        hardButton.setContentAreaFilled(false);
+        hardButton.setFocusPainted(false);
+
+        hardButton.addActionListener(e -> {
+            imageLabel.setIcon(hardImage);
+            if(stage==1){
+                new Launcher().DYNAMIC_MAP = "/board1H.txt";
+            }
+            else if(stage==2){
+                new Launcher().DYNAMIC_MAP = "/board2H.txt";
+            }
+            else if(stage==3){
+                new Launcher().DYNAMIC_MAP = "/board3H.txt";
+            }
+            else if(stage==4){
+                new Launcher().DYNAMIC_MAP = "/board4H.txt";
+            }
+            else if(stage==5){
+                new Launcher().DYNAMIC_MAP = "/board5H.txt";
+            }
+            defaultDiff = 0;
+
+        });
+
+        JButton PreviousButton = new JButton(transparentIcon4);
+        PreviousButton.setBorderPainted(false);
+        PreviousButton.setContentAreaFilled(false);
+        PreviousButton.setFocusPainted(false);
+
+        PreviousButton.addActionListener(e -> {
+            NewMapUI mapUI = new NewMapUI();
+            dispose();
+        });
+
+        JButton NextButton = new JButton(transparentIcon5);
+        NextButton.setBorderPainted(false);
+        NextButton.setContentAreaFilled(false);
+        NextButton.setFocusPainted(false);
+
+        NextButton.addActionListener(e -> {
+            if(defaultDiff == 1){
+                if(stage==1){
                     new Launcher().DYNAMIC_MAP = "/board1N.txt";
                 }
-                else if(mapSE==2){
+                else if(stage==2){
                     new Launcher().DYNAMIC_MAP = "/board2N.txt";
                 }
-                else if(mapSE==3){
+                else if(stage==3){
                     new Launcher().DYNAMIC_MAP = "/board3N.txt";
                 }
-                else if(mapSE==4){
+                else if(stage==4){
                     new Launcher().DYNAMIC_MAP = "/board4N.txt";
                 }
-                else if(mapSE==5){
+                else if(stage==5){
                     new Launcher().DYNAMIC_MAP = "/board5N.txt";
                 }
-                defaultDiff = 0;
+                new Launcher().launch();
+                dispose();
             }
-        });
-        hardButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg"));
-
-        hardButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(mapSE==1){
-                    new Launcher().DYNAMIC_MAP = "/board1H.txt";
-                }
-                if(mapSE==2){
-                    new Launcher().DYNAMIC_MAP = "/board2H.txt";
-                }
-                if(mapSE==3){
-                    new Launcher().DYNAMIC_MAP = "/board3H.txt";
-                }
-                if(mapSE==4){
-                    new Launcher().DYNAMIC_MAP = "/board4H.txt";
-                }
-                if(mapSE==5){
-                    new Launcher().DYNAMIC_MAP = "/board5H.txt";
-                }
-                defaultDiff = 0;
-            }
-        });
-
-        prevButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg"));
-        prevButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                NewMapUI newMapUI = new NewMapUI();
-                newMapUI.setVisible(true);
+            else {
+                new Launcher().launch();
                 dispose();
             }
         });
 
-        nextButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg"));
-        nextButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(defaultDiff == 1){
-                    if(mapSE==1){
-                        new Launcher().DYNAMIC_MAP = "/board1N.txt";
-                    }
-                    else if(mapSE==2){
-                        new Launcher().DYNAMIC_MAP = "/board2N.txt";
-                    }
-                    else if(mapSE==3){
-                        new Launcher().DYNAMIC_MAP = "/board3N.txt";
-                    }
-                    else if(mapSE==4){
-                        new Launcher().DYNAMIC_MAP = "/board4N.txt";
-                    }
-                    else if(mapSE==5){
-                        new Launcher().DYNAMIC_MAP = "/board5N.txt";
-                    }
-                    new Launcher().launch();
-                    dispose();
-                }
-                else {
-                    new Launcher().launch();
-                    dispose();
-                }
-            }
-        });
-        // Set up the image icons
-        easyImage = new ImageIcon("src/main/resources/Description 316, 234 px/easy.jpg");
-        normalImage = new ImageIcon("src/main/resources/Description 316, 234 px/normal.jpg");
-        hardImage = new ImageIcon("src/main/resources/Description 316, 234 px/hard.jpg");
 
-        // Set up the image label
-        imageLabel = new JLabel(easyImage);
-        Border paddingImage = BorderFactory.createEmptyBorder(100, 0, 0, 0);
-        imageLabel.setBorder(paddingImage);
-        // Add the buttons to a JPanel
-        JPanel buttonPanel = new JPanel();
+        easyButton.setBounds(buttonX-225, buttonY-75, buttonWidth, buttonHeight);
+        backgroundLabel.add(easyButton);
 
-        Border paddingBorder = BorderFactory.createEmptyBorder(0, 50, 0, 0);
+        normalButton.setBounds(buttonX-225, buttonY, buttonWidth, buttonHeight);
+        backgroundLabel.add(normalButton);
 
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.add(Box.createVerticalStrut(165));
-        buttonPanel.add(easyButton);
-        buttonPanel.add(Box.createVerticalStrut(25));
-        buttonPanel.add(normalButton);
-        buttonPanel.add(Box.createVerticalStrut(25));
-        buttonPanel.add(hardButton);
-        buttonPanel.setBorder(paddingBorder);
-        buttonPanel.setPreferredSize(new Dimension(300,0));
+        hardButton.setBounds(buttonX-225, buttonY+75, buttonWidth, buttonHeight);
+        backgroundLabel.add(hardButton);
 
-        // Add the button panel and image label to the JFrame
-        add(buttonPanel, BorderLayout.WEST);
-        add(imageLabel, BorderLayout.CENTER);
-        getContentPane().setComponentZOrder(imageLabel, getContentPane().getComponentZOrder(backgroundLabel));
+        PreviousButton.setBounds(buttonX-300, buttonY+250, buttonWidth, buttonHeight);
+        backgroundLabel.add(PreviousButton);
 
-        // Add action listeners to the buttons
-        easyButton.addActionListener(this);
-        normalButton.addActionListener(this);
-        hardButton.addActionListener(this);
+        NextButton.setBounds(buttonX+300, buttonY+250, 116, 51);
+        backgroundLabel.add(NextButton);
 
-        JPanel navPanel = new JPanel();
-        navPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        navPanel.add(prevButton);
-        navPanel.add(nextButton);
-        Border paddingBorder2 = BorderFactory.createEmptyBorder(0, 0, 0, 50);
-        navPanel.setBorder(paddingBorder2);
-        FlowLayout layout = new FlowLayout(FlowLayout.CENTER, 180, 20);
-        navPanel.setLayout(layout);
 
-        prevButton.setPreferredSize(new Dimension(116,51));
-        nextButton.setPreferredSize(new Dimension(116,51));
+        add(backgroundLabel);
 
-        // Add the nav panel to the JFrame
-        add(navPanel, BorderLayout.SOUTH);
-
-        prevButton.addActionListener(this);
-        nextButton.addActionListener(this);
-
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        // Change the image based on which button was clicked
-        if (e.getSource() == easyButton) {
-            imageLabel.setIcon(easyImage);
-        } else if (e.getSource() == normalButton) {
-            imageLabel.setIcon(normalImage);
-        } else if (e.getSource() == hardButton) {
-            imageLabel.setIcon(hardImage);
-        }
-
+        pack();
+        setVisible(true);
     }
 
     public static void main(String[] args) {
-        newDifficultyUI frame = new newDifficultyUI(1);
-        frame.setVisible(true);
+        new newDifficultyUI(1);
     }
 }
-
-

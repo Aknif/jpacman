@@ -1,19 +1,10 @@
 package nl.tudelft.jpacman.ui;
 
-import nl.tudelft.jpacman.Launcher;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.*;
 
-public class NewMapUI extends JFrame implements ActionListener {
-
-    private JButton map1Button, map2Button, map3Button, map4Button, map5Button, nextButton, prevButton;
-    private JLabel imageLabel;
-    private ImageIcon map1Image, map2Image, map3Image, map4Image, map5Image;
-
-
+public class NewMapUI extends JFrame {
 
     public int stage = 0;
 
@@ -24,171 +15,156 @@ public class NewMapUI extends JFrame implements ActionListener {
     public void setStage(int stage) {
         this.stage = stage;
     }
-
-
     public NewMapUI() {
-        // Set up the JFrame
 
-
-        setTitle("Stage Select");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
-        setLayout(new BorderLayout());
+        setTitle("Stage Selection");
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        // Load the image file into an ImageIcon
-        ImageIcon imageIcon = new ImageIcon("src/main/resources/pacman_bg/Map_bg _ 800, 600 px.png");
+        int frameWidth = getWidth();
+        int frameHeight = getHeight();
+        int buttonWidth = 116;
+        int buttonHeight = 51;
+        int buttonX = (frameWidth - buttonWidth) / 2;
+        int buttonY = (frameHeight - buttonHeight) / 2;
 
-        // Create a new JLabel with the image as the icon
-        JLabel backgroundLabel = new JLabel(imageIcon);
+        ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 116, 51 px/map 1 _ 116, 51 px.jpg");
+        ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 116, 51 px/map 2 _ 116, 51 px.jpg");
+        ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 116, 51 px/map 3 _ 116, 51 px.jpg");
+        ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/map 4 _ 116, 51 px.jpg");
+        ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/map 5 _ 116, 51 px.jpg");
+        ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg");
+        ImageIcon transparentIcon7 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
+        JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Map_bg _ 800, 600 px.png"));
 
-        // Set the size and position of the label to fill the JFrame
-        backgroundLabel.setBounds(0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight());
+        ImageIcon map1Image = new ImageIcon("src/main/resources/Map/Map 1 _ 344, 315 px.jpg");
+        ImageIcon map2Image = new ImageIcon("src/main/resources/Map/Map 2 _ 344, 315 px.jpg");
+        ImageIcon map3Image = new ImageIcon("src/main/resources/Map/Map 3 _ 344, 315 px.jpg");
+        ImageIcon map4Image = new ImageIcon("src/main/resources/Map/Map 4 _ 344, 315 px.jpg");
+        ImageIcon map5Image = new ImageIcon("src/main/resources/Map/Map 5 _ 344, 315 px.jpg");
 
-        // Set the label as the content pane of the JFrame
+        JButton imageLabel = new JButton(map1Image);
+        imageLabel.setSize(344,315);
+        imageLabel.setBorderPainted(false);
+        imageLabel.setContentAreaFilled(false);
+        imageLabel.setFocusPainted(false);
+        imageLabel.setBounds(400, 150, 344, 315);
+        backgroundLabel.add(imageLabel);
+
+
+
+        JButton Map1Button = new JButton(transparentIcon1);
+        Map1Button.setBorderPainted(false); // Remove the border
+        Map1Button.setContentAreaFilled(false); // Remove the background color
+        Map1Button.setFocusPainted(false); // Remove the focus border
+
+        Map1Button.addActionListener(e -> {
+            imageLabel.setIcon(map1Image);
+            setStage(1);
+
+        });
+
+        JButton Map2Button = new JButton(transparentIcon2);
+        Map2Button.setBorderPainted(false);
+        Map2Button.setContentAreaFilled(false);
+        Map2Button.setFocusPainted(false);
+
+        Map2Button.addActionListener(e -> {
+            imageLabel.setIcon(map2Image);
+            setStage(2);
+
+        });
+
+        JButton Map3Button = new JButton(transparentIcon3);
+        Map3Button.setBorderPainted(false);
+        Map3Button.setContentAreaFilled(false);
+        Map3Button.setFocusPainted(false);
+
+        Map3Button.addActionListener(e -> {
+            imageLabel.setIcon(map3Image);
+            setStage(3);
+
+        });
+
+
+        JButton Map4Button = new JButton(transparentIcon4);
+        Map4Button.setBorderPainted(false);
+        Map4Button.setContentAreaFilled(false);
+        Map4Button.setFocusPainted(false);
+
+        Map4Button.addActionListener(e -> {
+            imageLabel.setIcon(map4Image);
+            setStage(4);
+
+        });
+
+
+        JButton Map5Button = new JButton(transparentIcon5);
+        Map5Button.setBorderPainted(false);
+        Map5Button.setContentAreaFilled(false);
+        Map5Button.setFocusPainted(false);
+
+        Map5Button.addActionListener(e -> {
+            imageLabel.setIcon(map5Image);
+            setStage(5);
+
+        });
+
+        JButton PreviousButton = new JButton(transparentIcon6);
+        PreviousButton.setBorderPainted(false);
+        PreviousButton.setContentAreaFilled(false);
+        PreviousButton.setFocusPainted(false);
+
+        PreviousButton.addActionListener(e -> {
+            HomeUI homeUI = new HomeUI();
+            dispose();
+        });
+
+        JButton NextButton = new JButton(transparentIcon7);
+        NextButton.setBorderPainted(false);
+        NextButton.setContentAreaFilled(false);
+        NextButton.setFocusPainted(false);
+
+        NextButton.addActionListener(e -> {
+            newDifficultyUI difficultyUI = new newDifficultyUI(stage);
+            difficultyUI.setVisible(true);
+            dispose();
+        });
+
+
+
+
+        Map1Button.setBounds(buttonX-240, buttonY-150, buttonWidth, buttonHeight);
+        backgroundLabel.add(Map1Button);
+
+        Map2Button.setBounds(buttonX-240, buttonY-80, buttonWidth, buttonHeight);
+        backgroundLabel.add(Map2Button);
+
+        Map3Button.setBounds(buttonX-240, buttonY-10, buttonWidth, buttonHeight);
+        backgroundLabel.add(Map3Button);
+
+        Map4Button.setBounds(buttonX-240, buttonY+60, buttonWidth, buttonHeight);
+        backgroundLabel.add(Map4Button);
+
+        Map5Button.setBounds(buttonX-240, buttonY+130, buttonWidth, buttonHeight);
+        backgroundLabel.add(Map5Button);
+
+        PreviousButton.setBounds(buttonX-300, buttonY+250, buttonWidth, buttonHeight);
+        backgroundLabel.add(PreviousButton);
+
+        NextButton.setBounds(buttonX+300, buttonY+250, buttonWidth, buttonHeight);
+        backgroundLabel.add(NextButton);
+
+
         add(backgroundLabel);
 
-        // Set up the buttons
-        map1Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 1 _ 116, 51 px.jpg"));
-        map2Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 2 _ 116, 51 px.jpg"));
-        map3Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 3 _ 116, 51 px.jpg"));
-        map4Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 4 _ 116, 51 px.jpg"));
-        map5Button = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/map 5 _ 116, 51 px.jpg"));
-        prevButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg"));
-        nextButton = new JButton(new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg"));
-
-        // Set up the image icons
-        map1Image = new ImageIcon("src/main/resources/Map/Map 1 _ 344, 315 px.jpg");
-        map2Image = new ImageIcon("src/main/resources/Map/Map 2 _ 344, 315 px.jpg");
-        map3Image = new ImageIcon("src/main/resources/Map/Map 3 _ 344, 315 px.jpg");
-        map4Image = new ImageIcon("src/main/resources/Map/Map 4 _ 344, 315 px.jpg");
-        map5Image = new ImageIcon("src/main/resources/Map/Map 5 _ 344, 315 px.jpg");
-
-        // Set up the image label
-        imageLabel = new JLabel(map1Image);
-        Border paddingImage = BorderFactory.createEmptyBorder(100, 0, 0, 0);
-        imageLabel.setBorder(paddingImage);
-        // Add the buttons to a JPanel
-        JPanel buttonPanel = new JPanel();
-
-        Border paddingBorder = BorderFactory.createEmptyBorder(0, 50, 0, 0);
-
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.add(Box.createVerticalStrut(100));
-        buttonPanel.add(map1Button);
-        buttonPanel.add(Box.createVerticalStrut(10));
-        buttonPanel.add(map2Button);
-        buttonPanel.add(Box.createVerticalStrut(10));
-        buttonPanel.add(map3Button);
-        buttonPanel.add(Box.createVerticalStrut(10));
-        buttonPanel.add(map4Button);
-        buttonPanel.add(Box.createVerticalStrut(10));
-        buttonPanel.add(map5Button);
-        buttonPanel.setBorder(paddingBorder);
-        buttonPanel.setPreferredSize(new Dimension(300,0));
-        // Add the button panel and image label to the JFrame
-        add(buttonPanel, BorderLayout.WEST);
-        add(imageLabel, BorderLayout.CENTER);
-        getContentPane().setComponentZOrder(imageLabel, getContentPane().getComponentZOrder(backgroundLabel));
-
-        // Add action listeners to the buttons
-        map1Button.addActionListener(this);
-        map2Button.addActionListener(this);
-        map3Button.addActionListener(this);
-        map4Button.addActionListener(this);
-        map5Button.addActionListener(this);
-
-        JPanel navPanel = new JPanel();
-        navPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        navPanel.add(prevButton);
-        navPanel.add(nextButton);
-        Border paddingBorder2 = BorderFactory.createEmptyBorder(0, 0, 0, 50);
-        navPanel.setBorder(paddingBorder2);
-        FlowLayout layout = new FlowLayout(FlowLayout.CENTER, 180, 20);
-        navPanel.setLayout(layout);
-        prevButton.setPreferredSize(new Dimension(116,51));
-        nextButton.setPreferredSize(new Dimension(116,51));
-        // Add the nav panel to the JFrame
-        add(navPanel, BorderLayout.SOUTH);
-
-
-        prevButton.addActionListener(this);
-        nextButton.addActionListener(this);
-
-        prevButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                HomeUI homeUI = new HomeUI();
-                dispose();
-            }
-        });
-
-        nextButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                newDifficultyUI difficultyUI = new newDifficultyUI(stage);
-                difficultyUI.setVisible(true);
-                dispose();
-            }
-        });
-
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        // Change the image based on which button was clicked
-        if (e.getSource() == map1Button) {
-            imageLabel.setIcon(map1Image);
-            //new Launcher().DYNAMIC_MAP = "/board1N.txt";
-            setStage(1);
-            map1Button.setBackground(Color.GREEN);
-            map2Button.setBackground(null);
-            map3Button.setBackground(null);
-            map4Button.setBackground(null);
-            map5Button.setBackground(null);
-        } else if (e.getSource() == map2Button) {
-            imageLabel.setIcon(map2Image);
-            //new Launcher().DYNAMIC_MAP = "/board2N.txt";
-            setStage(2);
-            map2Button.setBackground(Color.GREEN);
-            map1Button.setBackground(null);
-            map3Button.setBackground(null);
-            map4Button.setBackground(null);
-            map5Button.setBackground(null);
-        } else if (e.getSource() == map3Button) {
-            imageLabel.setIcon(map3Image);
-            //new Launcher().DYNAMIC_MAP = "/board3N.txt";
-            setStage(3);
-            map3Button.setBackground(Color.GREEN);
-            map1Button.setBackground(null);
-            map2Button.setBackground(null);
-            map4Button.setBackground(null);
-            map5Button.setBackground(null);
-        } else if (e.getSource() == map4Button) {
-            imageLabel.setIcon(map4Image);
-            //new Launcher().DYNAMIC_MAP = "/board4N.txt";
-            setStage(4);
-            map4Button.setBackground(Color.GREEN);
-            map1Button.setBackground(null);
-            map3Button.setBackground(null);
-            map2Button.setBackground(null);
-            map5Button.setBackground(null);
-
-        } else if (e.getSource() == map5Button) {
-            imageLabel.setIcon(map5Image);
-            //new Launcher().DYNAMIC_MAP = "/board5N.txt";
-            setStage(5);
-            map5Button.setBackground(Color.GREEN);
-            map1Button.setBackground(null);
-            map2Button.setBackground(null);
-            map3Button.setBackground(null);
-            map4Button.setBackground(null);
-        }
-
+        pack();
+        setVisible(true);
     }
 
     public static void main(String[] args) {
-        NewMapUI frame = new NewMapUI();
-        frame.setVisible(true);
+        new NewMapUI();
     }
 }
-
