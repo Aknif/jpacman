@@ -1,90 +1,79 @@
 package nl.tudelft.jpacman.ui;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 
-public class HomeUI extends JFrame implements ActionListener {
-
+public class HomeUI extends JFrame {
     public HomeUI() {
-        // Set the title of the window
-        super("HomeUI");
 
-        // Set the size of the window
-        JFrame frame = new JFrame();
-        frame.setSize(800, 600);
-        frame.setTitle("My UI");
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        setSize(800, 600);
+        setTitle("Main Menu");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        //add bg image
-        ImageIcon icon = new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png");
-        JLabel label = new JLabel(icon);
-        label.setBounds(0, 0, icon.getIconWidth(), icon.getIconHeight());
-        frame.add(label);
+        int frameWidth = getWidth();
+        int frameHeight = getHeight();
+        int buttonWidth = 266;
+        int buttonHeight = 58;
+        int buttonX = (frameWidth - buttonWidth) / 2;
+        int buttonY = (frameHeight - buttonHeight) / 2;
 
-        // Create and customize the button
-        ImageIcon iconButton = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
-        JButton CasualButton = new JButton(iconButton);
+        ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
+        ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/endless _ 266, 58 px.jpg");
+        ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
+        JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png"));
 
-        CasualButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                NewMapUI newMapUI = new NewMapUI();
-                newMapUI.setVisible(true);
-                frame.dispose();
-            }
+        JButton invisibleButton1 = new JButton(transparentIcon1);
+        invisibleButton1.setBorderPainted(false); // Remove the border
+        invisibleButton1.setContentAreaFilled(false); // Remove the background color
+        invisibleButton1.setFocusPainted(false); // Remove the focus border
+
+        invisibleButton1.addActionListener(e -> {
+            NewMapUI newMapUI = new NewMapUI();
+            newMapUI.setVisible(true);
+            dispose();
         });
 
-        ImageIcon iconButton_Endless = new ImageIcon("src/main/resources/Button 266, 58 px/endless _ 266, 58 px.jpg");
-        JButton EndlessButton = new JButton(iconButton_Endless);
+        JButton invisibleButton2 = new JButton(transparentIcon2);
+        invisibleButton2.setBorderPainted(false);
+        invisibleButton2.setContentAreaFilled(false);
+        invisibleButton2.setFocusPainted(false);
 
-
-        EndlessButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                NewMapUI newMapUI = new NewMapUI();
-                newMapUI.setVisible(true);
-                frame.dispose();
-            }
+        invisibleButton2.addActionListener(e -> {
+            NewMapUI newMapUI = new NewMapUI();
+            newMapUI.setVisible(true);
+            dispose();
         });
 
-        /*ImageIcon iconButton_Score = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
-        JButton ScoreButton = new JButton(iconButton_Score);
-        ScoreButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ScoreUI scoreUI = new ScoreUI();
-                scoreUI.setVisible(true);
-                frame.dispose();
-            }
+        JButton invisibleButton3 = new JButton(transparentIcon3);
+        invisibleButton3.setBorderPainted(false);
+        invisibleButton3.setContentAreaFilled(false);
+        invisibleButton3.setFocusPainted(false);
+
+        invisibleButton3.addActionListener(e -> {
+            ScoreUI scoreUI = new ScoreUI();
+            scoreUI.setVisible(true);
+            dispose();
         });
-        */
-        // Create a JPanel with FlowLayout to center the button
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(Box.createVerticalStrut(230));
-        buttonPanel.add(CasualButton);
-        buttonPanel.add(Box.createVerticalStrut(25));
-        buttonPanel.add(EndlessButton);
-        buttonPanel.add(Box.createVerticalStrut(25));
 
-        //buttonPanel.add(ScoreButton);
+        invisibleButton1.setBounds(buttonX, buttonY-20, buttonWidth, buttonHeight);
+        backgroundLabel.add(invisibleButton1);
 
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        invisibleButton2.setBounds(buttonX, buttonY+50, buttonWidth, buttonHeight);
+        backgroundLabel.add(invisibleButton2);
 
-        CasualButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        EndlessButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        //ScoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        invisibleButton3.setBounds(buttonX, buttonY+120, buttonWidth, buttonHeight);
+        backgroundLabel.add(invisibleButton3);
+        add(backgroundLabel);
 
-        // Add the panel to the frame
-        frame.add(buttonPanel);
 
-        frame.setVisible(true);
+
+        pack();
+        setVisible(true);
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public static void main(String[] args) {
+        new HomeUI();
     }
 }
