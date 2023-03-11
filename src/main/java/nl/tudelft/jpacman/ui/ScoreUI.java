@@ -30,5 +30,9 @@ public class ScoreUI extends JFrame {
         score += points;
         scoreLabel.setText("Score: " + score);
     }
+    public static void main(String[] args){
+        ScoreUI scoreUI = new ScoreUI();
+    }
 }
+
 
