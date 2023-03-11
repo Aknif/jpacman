@@ -12,9 +12,7 @@ public class newDifficultyUI extends JFrame implements ActionListener {
     private JButton easyButton, normalButton, hardButton, nextButton, prevButton;
     private JLabel imageLabel;
     private ImageIcon easyImage, normalImage, hardImage;
-
-
-
+    private int defaultDiff = 1;
 
     public newDifficultyUI(int mapSE) {
         // Set up the JFrame
@@ -55,6 +53,7 @@ public class newDifficultyUI extends JFrame implements ActionListener {
                 else if(mapSE==5){
                     new Launcher().DYNAMIC_MAP = "/board5E.txt";
                 }
+                defaultDiff = 0;
             }
         });
         normalButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/normal _ 266, 58 px.jpg"));
@@ -76,6 +75,7 @@ public class newDifficultyUI extends JFrame implements ActionListener {
                 else if(mapSE==5){
                     new Launcher().DYNAMIC_MAP = "/board5N.txt";
                 }
+                defaultDiff = 0;
             }
         });
         hardButton = new JButton(new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg"));
@@ -98,6 +98,7 @@ public class newDifficultyUI extends JFrame implements ActionListener {
                 if(mapSE==5){
                     new Launcher().DYNAMIC_MAP = "/board5H.txt";
                 }
+                defaultDiff = 0;
             }
         });
 
@@ -115,8 +116,29 @@ public class newDifficultyUI extends JFrame implements ActionListener {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Launcher().launch();
-                dispose();
+                if(defaultDiff == 1){
+                    if(mapSE==1){
+                        new Launcher().DYNAMIC_MAP = "/board1N.txt";
+                    }
+                    else if(mapSE==2){
+                        new Launcher().DYNAMIC_MAP = "/board2N.txt";
+                    }
+                    else if(mapSE==3){
+                        new Launcher().DYNAMIC_MAP = "/board3N.txt";
+                    }
+                    else if(mapSE==4){
+                        new Launcher().DYNAMIC_MAP = "/board4N.txt";
+                    }
+                    else if(mapSE==5){
+                        new Launcher().DYNAMIC_MAP = "/board5N.txt";
+                    }
+                    new Launcher().launch();
+                    dispose();
+                }
+                else {
+                    new Launcher().launch();
+                    dispose();
+                }
             }
         });
         // Set up the image icons

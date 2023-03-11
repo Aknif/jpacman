@@ -111,6 +111,7 @@ public class NewMapUI extends JFrame implements ActionListener {
         // Add the nav panel to the JFrame
         add(navPanel, BorderLayout.SOUTH);
 
+
         prevButton.addActionListener(this);
         nextButton.addActionListener(this);
 
