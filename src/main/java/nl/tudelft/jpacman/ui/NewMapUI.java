@@ -137,7 +137,7 @@ public class NewMapUI extends JFrame implements ActionListener {
         // Change the image based on which button was clicked
         if (e.getSource() == map1Button) {
             imageLabel.setIcon(map1Image);
-            //new Launcher().DYNAMIC_MAP = "/boardN.txt";
+            //new Launcher().DYNAMIC_MAP = "/board1N.txt";
             setStage(1);
             map1Button.setBackground(Color.GREEN);
             map2Button.setBackground(null);
