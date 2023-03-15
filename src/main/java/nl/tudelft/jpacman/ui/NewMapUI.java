@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class NewMapUI extends JFrame {
 
-    public int stage = 0;
+    public int stage = 1;
 
     public int getStage() {
         return stage;
