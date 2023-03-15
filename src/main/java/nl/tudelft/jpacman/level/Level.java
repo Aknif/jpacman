@@ -15,10 +15,8 @@ import nl.tudelft.jpacman.board.Board;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
-import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.npc.Ghost;
-import nl.tudelft.jpacman.ui.HomeUI;
-import nl.tudelft.jpacman.ui.ScoreUI;
+import nl.tudelft.jpacman.ui.SaveUI;
 
 /**
  * A level of Pac-Man. A level consists of the board with the players and the
@@ -270,14 +268,14 @@ public class Level {
             for (LevelObserver observer : observers) {
                 observer.levelLost();
                 /**Add UI Redirect**/
-
+                new SaveUI();
             }
         }
         if (remainingPellets() == 0) {
             for (LevelObserver observer : observers) {
                 observer.levelWon();
                 /**Add UI Redirect**/
-
+                new SaveUI();
             }
         }
     }
