@@ -31,10 +31,20 @@ public class NewMapUI extends JFrame {
         int buttonY = (frameHeight - buttonHeight) / 2;
 
         ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 116, 51 px/map 1 _ 116, 51 px.jpg");
+        ImageIcon green1 = new ImageIcon("src/main/resources/Green Button/map 1  116, 51 px.png");
+
         ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 116, 51 px/map 2 _ 116, 51 px.jpg");
+        ImageIcon green2 = new ImageIcon("src/main/resources/Green Button/map 2  116, 51 px.png");
+
         ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 116, 51 px/map 3 _ 116, 51 px.jpg");
+        ImageIcon green3 = new ImageIcon("src/main/resources/Green Button/map 3  116, 51 px.png");
+
         ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/map 4 _ 116, 51 px.jpg");
+        ImageIcon green4 = new ImageIcon("src/main/resources/Green Button/map 4  116, 51 px.png");
+
         ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/map 5 _ 116, 51 px.jpg");
+        ImageIcon green5 = new ImageIcon("src/main/resources/Green Button/map 5  116, 51 px.png");
+
         ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg");
         ImageIcon transparentIcon7 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Map_bg _ 800, 600 px.png"));
@@ -54,63 +64,85 @@ public class NewMapUI extends JFrame {
         backgroundLabel.add(imageLabel);
 
 
-
-        JButton Map1Button = new JButton(transparentIcon1);
+        //Create button
+        JButton Map1Button = new JButton(green1);
         Map1Button.setBorderPainted(false); // Remove the border
         Map1Button.setContentAreaFilled(false); // Remove the background color
         Map1Button.setFocusPainted(false); // Remove the focus border
 
-        Map1Button.addActionListener(e -> {
-            imageLabel.setIcon(map1Image);
-            setStage(1);
-
-        });
 
         JButton Map2Button = new JButton(transparentIcon2);
         Map2Button.setBorderPainted(false);
         Map2Button.setContentAreaFilled(false);
         Map2Button.setFocusPainted(false);
 
-        Map2Button.addActionListener(e -> {
-            imageLabel.setIcon(map2Image);
-            setStage(2);
-
-        });
-
         JButton Map3Button = new JButton(transparentIcon3);
         Map3Button.setBorderPainted(false);
         Map3Button.setContentAreaFilled(false);
         Map3Button.setFocusPainted(false);
-
-        Map3Button.addActionListener(e -> {
-            imageLabel.setIcon(map3Image);
-            setStage(3);
-
-        });
-
 
         JButton Map4Button = new JButton(transparentIcon4);
         Map4Button.setBorderPainted(false);
         Map4Button.setContentAreaFilled(false);
         Map4Button.setFocusPainted(false);
 
-        Map4Button.addActionListener(e -> {
-            imageLabel.setIcon(map4Image);
-            setStage(4);
-
-        });
-
-
         JButton Map5Button = new JButton(transparentIcon5);
         Map5Button.setBorderPainted(false);
         Map5Button.setContentAreaFilled(false);
         Map5Button.setFocusPainted(false);
 
+        //Add action to button
+        Map1Button.addActionListener(e -> {
+            imageLabel.setIcon(map1Image);
+            setStage(1);
+            Map1Button.setIcon(green1);
+            Map2Button.setIcon(transparentIcon2);
+            Map3Button.setIcon(transparentIcon3);
+            Map4Button.setIcon(transparentIcon4);
+            Map5Button.setIcon(transparentIcon5);
+
+        });
+
+        Map2Button.addActionListener(e -> {
+            imageLabel.setIcon(map2Image);
+            setStage(2);
+            Map1Button.setIcon(transparentIcon1);
+            Map2Button.setIcon(green2);
+            Map3Button.setIcon(transparentIcon3);
+            Map4Button.setIcon(transparentIcon4);
+            Map5Button.setIcon(transparentIcon5);
+        });
+
+        Map3Button.addActionListener(e -> {
+            imageLabel.setIcon(map3Image);
+            setStage(3);
+            Map1Button.setIcon(transparentIcon1);
+            Map2Button.setIcon(transparentIcon2);
+            Map3Button.setIcon(green3);
+            Map4Button.setIcon(transparentIcon4);
+            Map5Button.setIcon(transparentIcon5);
+        });
+
+        Map4Button.addActionListener(e -> {
+            imageLabel.setIcon(map4Image);
+            setStage(4);
+            Map1Button.setIcon(transparentIcon1);
+            Map2Button.setIcon(transparentIcon2);
+            Map3Button.setIcon(transparentIcon3);
+            Map4Button.setIcon(green4);
+            Map5Button.setIcon(transparentIcon5);
+        });
+
         Map5Button.addActionListener(e -> {
             imageLabel.setIcon(map5Image);
             setStage(5);
-
+            Map1Button.setIcon(transparentIcon1);
+            Map2Button.setIcon(transparentIcon2);
+            Map3Button.setIcon(transparentIcon3);
+            Map4Button.setIcon(transparentIcon4);
+            Map5Button.setIcon(green5);
         });
+
 
         JButton PreviousButton = new JButton(transparentIcon6);
         PreviousButton.setBorderPainted(false);

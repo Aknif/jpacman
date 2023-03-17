@@ -83,6 +83,8 @@ public class PacManUiBuilder {
         buttons.put(STOP_CAPTION, game::stop);
     }
 
+
+
     /**
      * Adds a button with the caption {@value #START_CAPTION} that starts the
      * game.

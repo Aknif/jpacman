@@ -26,8 +26,14 @@ public class newDifficultyUI extends JFrame {
         int buttonY = (frameHeight - buttonHeight) / 2;
 
         ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/easy _ 266, 58 px.jpg");
+        ImageIcon greenE = new ImageIcon("src/main/resources/Green Button/easy  266, 58 px.png");
+
         ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/normal _ 266, 58 px.jpg");
+        ImageIcon greenN = new ImageIcon("src/main/resources/Green Button/normal  266, 58 px.png");
+
         ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg");
+        ImageIcon greenH = new ImageIcon("src/main/resources/Green Button/hard  266, 58 px.png");
+
         ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg");
         ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Difficulty_bg _ 800, 600 px.png"));
@@ -45,13 +51,24 @@ public class newDifficultyUI extends JFrame {
         imageLabel.setBounds(400, 150, 344, 315);
         backgroundLabel.add(imageLabel);
 
-
-
+        //Create Button
         JButton easyButton = new JButton(transparentIcon1);
         easyButton.setBorderPainted(false); // Remove the border
         easyButton.setContentAreaFilled(false); // Remove the background color
         easyButton.setFocusPainted(false); // Remove the focus border
 
+        JButton normalButton = new JButton(greenN);
+        normalButton.setBorderPainted(false);
+        normalButton.setContentAreaFilled(false);
+        normalButton.setFocusPainted(false);
+
+        JButton hardButton = new JButton(transparentIcon3);
+        hardButton.setBorderPainted(false);
+        hardButton.setContentAreaFilled(false);
+        hardButton.setFocusPainted(false);
+
+
+        //Add action when click button
         easyButton.addActionListener(e -> {
             imageLabel.setIcon(easyImage);
             if(stage==1){
@@ -70,12 +87,10 @@ public class newDifficultyUI extends JFrame {
                 new Launcher().DYNAMIC_MAP = "/board5E.txt";
             }
             defaultDiff = 0;
+            easyButton.setIcon(greenE);
+            normalButton.setIcon(transparentIcon2);
+            hardButton.setIcon(transparentIcon3);
         });
-
-        JButton normalButton = new JButton(transparentIcon2);
-        normalButton.setBorderPainted(false);
-        normalButton.setContentAreaFilled(false);
-        normalButton.setFocusPainted(false);
 
         normalButton.addActionListener(e -> {
             imageLabel.setIcon(normalImage);
@@ -95,12 +110,10 @@ public class newDifficultyUI extends JFrame {
                 new Launcher().DYNAMIC_MAP = "/board5N.txt";
             }
             defaultDiff = 0;
+            easyButton.setIcon(transparentIcon1);
+            normalButton.setIcon(greenN);
+            hardButton.setIcon(transparentIcon3);
         });
-
-        JButton hardButton = new JButton(transparentIcon3);
-        hardButton.setBorderPainted(false);
-        hardButton.setContentAreaFilled(false);
-        hardButton.setFocusPainted(false);
 
         hardButton.addActionListener(e -> {
             imageLabel.setIcon(hardImage);
@@ -120,7 +133,9 @@ public class newDifficultyUI extends JFrame {
                 new Launcher().DYNAMIC_MAP = "/board5H.txt";
             }
             defaultDiff = 0;
-
+            easyButton.setIcon(transparentIcon1);
+            normalButton.setIcon(transparentIcon2);
+            hardButton.setIcon(greenH);
         });
 
         JButton PreviousButton = new JButton(transparentIcon4);
