@@ -1,18 +1,20 @@
 package nl.tudelft.jpacman.ui;
 
+import nl.tudelft.jpacman.level.Player;
+
 import javax.swing.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.HashMap;
+
 
 
 public class NewSaveUI extends JFrame {
 
     JTextField textField;
-    public int finalscore = 10;
+
     private HashMap<String, Integer> scores = new HashMap<>();
+    int finalscore = 10;
     public NewSaveUI(){
         setSize(600, 380);
         setTitle("Save");
@@ -71,7 +73,7 @@ public class NewSaveUI extends JFrame {
     }
 
     private void saveScoresToFile() {
-        File fileToSave = new File("src/main/resources/score.jason");
+        File fileToSave = new File("src/main/resources/score.json");
         try {
             FileWriter writer = new FileWriter(fileToSave);
             writer.write(scores.toString());
