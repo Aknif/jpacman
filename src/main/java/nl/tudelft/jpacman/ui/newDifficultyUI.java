@@ -20,7 +20,7 @@ public class newDifficultyUI extends JFrame {
 
         int frameWidth = getWidth();
         int frameHeight = getHeight();
-        int buttonWidth = 226;
+        int buttonWidth = 266;
         int buttonHeight = 58;
         int buttonX = (frameWidth - buttonWidth) / 2;
         int buttonY = (frameHeight - buttonHeight) / 2;
