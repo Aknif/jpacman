@@ -118,4 +118,5 @@ public class PacManUI extends JFrame {
         boardPanel.repaint();
         scorePanel.refresh();
     }
+
 }

@@ -10,23 +10,14 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.npc.ghost.GhostFactory;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.*;
-import nl.tudelft.jpacman.ui.DifficultyUI;
-import nl.tudelft.jpacman.ui.HomeUI;
-import nl.tudelft.jpacman.ui.MapUI;
-import nl.tudelft.jpacman.ui.ScoreUI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 public class JpacmanTest_UC006 {

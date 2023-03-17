@@ -11,7 +11,6 @@ import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.DifficultyUI;
 import nl.tudelft.jpacman.ui.HomeUI;
-import nl.tudelft.jpacman.ui.MapUI;
 import nl.tudelft.jpacman.ui.ScoreUI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
