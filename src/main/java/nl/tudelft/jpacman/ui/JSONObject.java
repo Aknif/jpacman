@@ -6,7 +6,7 @@ import java.util.Map;
 public class JSONObject {
     private final Map<String, Object> jsonMap;
 
-    public JSONObject() {
+    public JSONObject(String fileContent) {
         jsonMap = new HashMap<>();
     }
 

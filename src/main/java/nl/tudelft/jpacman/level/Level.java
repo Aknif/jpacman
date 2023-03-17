@@ -16,6 +16,7 @@ import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.npc.Ghost;
+import nl.tudelft.jpacman.ui.NewSaveUI;
 import nl.tudelft.jpacman.ui.SaveUI;
 
 /**
@@ -268,14 +269,14 @@ public class Level {
             for (LevelObserver observer : observers) {
                 observer.levelLost();
                 /**Add UI Redirect**/
-                new SaveUI();
+                new NewSaveUI();
             }
         }
         if (remainingPellets() == 0) {
             for (LevelObserver observer : observers) {
                 observer.levelWon();
                 /**Add UI Redirect**/
-                new SaveUI();
+                new NewSaveUI();
             }
         }
     }

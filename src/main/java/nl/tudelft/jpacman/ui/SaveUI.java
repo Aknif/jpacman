@@ -85,9 +85,9 @@ public class SaveUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == saveButton) {
+       /* if (e.getSource() == saveButton) {
             // Save name to JSON file
-            JSONObject obj = new JSONObject();
+            JSONObject obj = new JSONObject(fileContent);
             obj.put("name", nameField.getText());
 
             try (FileWriter file = new FileWriter("name.json")) {
@@ -96,7 +96,7 @@ public class SaveUI extends JFrame implements ActionListener {
             } catch (IOException ex) {
                 System.out.println("Error saving name to file.");
             }
-        }
+        }*/
     }
 
     public static void main(String[] args) {

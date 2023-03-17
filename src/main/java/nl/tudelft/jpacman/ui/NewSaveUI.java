@@ -1,8 +1,18 @@
 package nl.tudelft.jpacman.ui;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.HashMap;
+
 
 public class NewSaveUI extends JFrame {
+
+    JTextField textField;
+    public int finalscore = 10;
+    private HashMap<String, Integer> scores = new HashMap<>();
     public NewSaveUI(){
         setSize(600, 380);
         setTitle("Save");
@@ -31,14 +41,17 @@ public class NewSaveUI extends JFrame {
         summitButton.setContentAreaFilled(false); // Remove the background color
         summitButton.setFocusPainted(false); // Remove the focus border
 
+
+
+
         //add BG image
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/FinalScore_600x350.png"));
 
-        summitButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight); // Center the button
+        summitButton.setBounds(buttonX, buttonY+40, buttonWidth, buttonHeight); // Center the button
         backgroundLabel.add(summitButton);
 
         //Create JTextField
-        JTextField textField = new JTextField();
+        JTextField textField = new JTextField(20);
         textField.setBounds(textFieldX, textFieldY, textFieldWidth, textFieldHeight);
         textField.setHorizontalAlignment(JTextField.CENTER);
         backgroundLabel.add(textField);
@@ -46,7 +59,28 @@ public class NewSaveUI extends JFrame {
         add(backgroundLabel);
         setVisible(true);
 
+        summitButton.addActionListener(e -> {
+            String name = textField.getText();
+            scores.put(name, finalscore);
+            saveScoresToFile();
+            JOptionPane.showMessageDialog(NewSaveUI.this, "Score saved successfully!");
+            dispose();
+        });
+
+
     }
+
+    private void saveScoresToFile() {
+        File fileToSave = new File("src/main/resources/score.jason");
+        try {
+            FileWriter writer = new FileWriter(fileToSave);
+            writer.write(scores.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         NewSaveUI Saveui = new NewSaveUI();
     }
