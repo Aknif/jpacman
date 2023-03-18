@@ -75,8 +75,9 @@ public class NewSaveUI extends JFrame {
     private void saveScoresToFile() {
         File fileToSave = new File("src/main/resources/score.json");
         try {
-            FileWriter writer = new FileWriter(fileToSave);
+            FileWriter writer = new FileWriter(fileToSave, true);
             writer.write(scores.toString());
+            writer.write("\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
