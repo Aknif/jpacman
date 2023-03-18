@@ -179,20 +179,19 @@ public class newDifficultyUI extends JFrame {
             }
         });
 
-
-        easyButton.setBounds(buttonX-225, buttonY-75, buttonWidth, buttonHeight);
+        easyButton.setBounds(buttonX-200, buttonY-75, buttonWidth, buttonHeight);
         backgroundLabel.add(easyButton);
 
-        normalButton.setBounds(buttonX-225, buttonY, buttonWidth, buttonHeight);
+        normalButton.setBounds(buttonX-200, buttonY, buttonWidth, buttonHeight);
         backgroundLabel.add(normalButton);
 
-        hardButton.setBounds(buttonX-225, buttonY+75, buttonWidth, buttonHeight);
+        hardButton.setBounds(buttonX-200, buttonY+75, buttonWidth, buttonHeight);
         backgroundLabel.add(hardButton);
 
         PreviousButton.setBounds(buttonX-300, buttonY+250, buttonWidth, buttonHeight);
         backgroundLabel.add(PreviousButton);
 
-        NextButton.setBounds(buttonX+300, buttonY+250, 116, 51);
+        NextButton.setBounds(buttonX+300, buttonY+250, buttonWidth, buttonHeight);
         backgroundLabel.add(NextButton);
 
 
