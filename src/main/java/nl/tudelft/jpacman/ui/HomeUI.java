@@ -20,8 +20,7 @@ public class HomeUI extends JFrame {
         int buttonY = (frameHeight - buttonHeight) / 2;
 
         ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
-        ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/endless _ 266, 58 px.jpg");
-        ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
+        ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png"));
 
         JButton CasualButton = new JButton(transparentIcon1);
@@ -35,18 +34,7 @@ public class HomeUI extends JFrame {
             dispose();
         });
 
-        JButton EndlessButton = new JButton(transparentIcon2);
-        EndlessButton.setBorderPainted(false);
-        EndlessButton.setContentAreaFilled(false);
-        EndlessButton.setFocusPainted(false);
-
-        EndlessButton.addActionListener(e -> {
-            NewMapUI newMapUI = new  NewMapUI();
-            newMapUI.setVisible(true);
-            dispose();
-        });
-
-        JButton ScoreButton = new JButton(transparentIcon3);
+        JButton ScoreButton = new JButton(transparentIcon2);
         ScoreButton.setBorderPainted(false);
         ScoreButton.setContentAreaFilled(false);
         ScoreButton.setFocusPainted(false);
@@ -57,17 +45,12 @@ public class HomeUI extends JFrame {
             dispose();
         });
 
-        CasualButton.setBounds(buttonX, buttonY-20, buttonWidth, buttonHeight);
+        CasualButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
         backgroundLabel.add(CasualButton);
 
-        EndlessButton.setBounds(buttonX, buttonY+50, buttonWidth, buttonHeight);
-        backgroundLabel.add(EndlessButton);
-
-        ScoreButton.setBounds(buttonX, buttonY+120, buttonWidth, buttonHeight);
+        ScoreButton.setBounds(buttonX, buttonY+100, buttonWidth, buttonHeight);
         backgroundLabel.add(ScoreButton);
         add(backgroundLabel);
-
-
 
         pack();
         setVisible(true);
