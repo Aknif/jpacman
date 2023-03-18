@@ -45,7 +45,7 @@ public class NewMapUI extends JFrame {
         ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/map 5 _ 116, 51 px.jpg");
         ImageIcon green5 = new ImageIcon("src/main/resources/Green Button/map 5  116, 51 px.png");
 
-        ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg");
+        ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 116, 51 px/back  116, 51 px.png");
         ImageIcon transparentIcon7 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Map_bg _ 800, 600 px.png"));
 
@@ -166,21 +166,19 @@ public class NewMapUI extends JFrame {
         });
 
 
-
-
-        Map1Button.setBounds(buttonX-240, buttonY-150, buttonWidth, buttonHeight);
+        Map1Button.setBounds(buttonX-225, buttonY-120, buttonWidth, buttonHeight);
         backgroundLabel.add(Map1Button);
 
-        Map2Button.setBounds(buttonX-240, buttonY-80, buttonWidth, buttonHeight);
+        Map2Button.setBounds(buttonX-225, buttonY-55, buttonWidth, buttonHeight);
         backgroundLabel.add(Map2Button);
 
-        Map3Button.setBounds(buttonX-240, buttonY-10, buttonWidth, buttonHeight);
+        Map3Button.setBounds(buttonX-225, buttonY+10, buttonWidth, buttonHeight);
         backgroundLabel.add(Map3Button);
 
-        Map4Button.setBounds(buttonX-240, buttonY+60, buttonWidth, buttonHeight);
+        Map4Button.setBounds(buttonX-225, buttonY+75, buttonWidth, buttonHeight);
         backgroundLabel.add(Map4Button);
 
-        Map5Button.setBounds(buttonX-240, buttonY+130, buttonWidth, buttonHeight);
+        Map5Button.setBounds(buttonX-225, buttonY+140, buttonWidth, buttonHeight);
         backgroundLabel.add(Map5Button);
 
         PreviousButton.setBounds(buttonX-300, buttonY+250, buttonWidth, buttonHeight);
@@ -188,7 +186,6 @@ public class NewMapUI extends JFrame {
 
         NextButton.setBounds(buttonX+300, buttonY+250, buttonWidth, buttonHeight);
         backgroundLabel.add(NextButton);
-
 
         add(backgroundLabel);
 
