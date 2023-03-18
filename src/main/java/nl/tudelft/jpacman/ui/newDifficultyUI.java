@@ -34,7 +34,7 @@ public class newDifficultyUI extends JFrame {
         ImageIcon transparentIcon3 = new ImageIcon("src/main/resources/Button 266, 58 px/hard _ 266, 58 px.jpg");
         ImageIcon greenH = new ImageIcon("src/main/resources/Green Button/hard  266, 58 px.png");
 
-        ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/perv _ 116, 51 px.jpg");
+        ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/back  116, 51 px.png");
         ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Difficulty_bg _ 800, 600 px.png"));
 
