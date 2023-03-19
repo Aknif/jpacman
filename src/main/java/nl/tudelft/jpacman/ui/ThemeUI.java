@@ -11,10 +11,6 @@ public class ThemeUI extends JFrame {
 
     int defaultTheme;
 
-    public ThemeUI() {
-
-    }
-
     public ThemeUI(int stage) {
 
 
@@ -73,20 +69,17 @@ public class ThemeUI extends JFrame {
         //Add action to button
         VividButton.addActionListener(e -> {
             imageLabel.setIcon(VividImage);
-            defaultTheme = 1;
-
+            PacManSprites.themeNUM=1;
         });
 
         CityButton.addActionListener(e -> {
             imageLabel.setIcon(CityImage);
-            defaultTheme = 2;
-
+            PacManSprites.themeNUM=2;
         });
 
         SpaceButton.addActionListener(e -> {
             imageLabel.setIcon(SpaceImage);
-            defaultTheme = 3;
-
+            PacManSprites.themeNUM=3;
         });
 
         JButton PreviousButton = new JButton(transparentIcon4);
