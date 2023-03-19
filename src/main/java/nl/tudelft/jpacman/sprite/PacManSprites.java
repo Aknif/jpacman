@@ -65,19 +65,19 @@ public class PacManSprites extends SpriteStore {
     public Map<Direction, Sprite> getPacmanSprites() {
 
         if (themeNUM == 1){
-            System.out.println("theme before create sprite1 = "+themeNUM );
+
             return directionSprite("/sprite/Vivid/pacman.png", PACMAN_ANIMATION_FRAMES);
         }
         if (themeNUM == 2){
-            System.out.println("theme before create sprite1 = "+themeNUM );
+
             return directionSprite("/sprite/City/pacman.png", PACMAN_ANIMATION_FRAMES);
         }
         if (themeNUM == 3){
-            System.out.println("theme before create sprite1 = "+themeNUM );
+
             return directionSprite("/sprite/Space/pacman.png", PACMAN_ANIMATION_FRAMES);
         }
         else {
-            System.out.println("theme before create sprite2 = "+themeNUM );
+
             return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
         }
     }
@@ -148,10 +148,9 @@ public class PacManSprites extends SpriteStore {
         }
         else {
             String resource = "/sprite/ghost_" + color.name().toLowerCase()
-            + ".png";
+                + ".png";
             return directionSprite(resource, GHOST_ANIMATION_FRAMES);
         }
-
     }
 
     /**

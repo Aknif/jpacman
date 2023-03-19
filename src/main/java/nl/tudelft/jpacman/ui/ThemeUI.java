@@ -98,7 +98,6 @@ public class ThemeUI extends JFrame {
         NextButton.setContentAreaFilled(false);
         NextButton.setFocusPainted(false);
         NextButton.addActionListener(e -> {
-
             new Launcher().launch();
             dispose();
             });
