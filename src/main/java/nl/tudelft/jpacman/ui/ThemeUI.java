@@ -1,11 +1,17 @@
 package nl.tudelft.jpacman.ui;
 
+import nl.tudelft.jpacman.Launcher;
+import nl.tudelft.jpacman.sprite.PacManSprites;
+
 import javax.swing.*;
 
 public class ThemeUI extends JFrame {
 
 
-    public ThemeUI() {
+
+    int defaultTheme = 1;
+    public ThemeUI(int stage) {
+
 
         setSize(800, 600);
         setTitle("Theme Selection");
@@ -62,25 +68,40 @@ public class ThemeUI extends JFrame {
         //Add action to button
         VividButton.addActionListener(e -> {
             imageLabel.setIcon(VividImage);
+            defaultTheme = 1;
+
         });
 
         CityButton.addActionListener(e -> {
             imageLabel.setIcon(CityImage);
+            defaultTheme = 2;
+
         });
 
         SpaceButton.addActionListener(e -> {
             imageLabel.setIcon(SpaceImage);
+            defaultTheme = 3;
+
         });
 
         JButton PreviousButton = new JButton(transparentIcon4);
         PreviousButton.setBorderPainted(false);
         PreviousButton.setContentAreaFilled(false);
         PreviousButton.setFocusPainted(false);
+        PreviousButton.addActionListener(e -> {
+            newDifficultyUI diffUI = new newDifficultyUI(stage);
+            dispose();
+        });
 
         JButton NextButton = new JButton(transparentIcon5);
         NextButton.setBorderPainted(false);
         NextButton.setContentAreaFilled(false);
         NextButton.setFocusPainted(false);
+        NextButton.addActionListener(e -> {
+
+            new Launcher().launch();
+            dispose();
+            });
 
 
         VividButton.setBounds(buttonX-200, buttonY-75, buttonWidth, buttonHeight);
@@ -105,6 +126,7 @@ public class ThemeUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        new ThemeUI();
+        new ThemeUI(1);
     }
+
 }

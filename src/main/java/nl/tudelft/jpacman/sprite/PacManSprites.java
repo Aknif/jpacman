@@ -8,6 +8,8 @@ import nl.tudelft.jpacman.PacmanConfigurationException;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.npc.ghost.GhostColor;
 
+import nl.tudelft.jpacman.ui.ThemeUI;
+
 /**
  * Sprite Store containing the classic Pac-Man sprites.
  *
@@ -15,16 +17,21 @@ import nl.tudelft.jpacman.npc.ghost.GhostColor;
  */
 public class PacManSprites extends SpriteStore {
 
-    /**
-     * The sprite files are vertically stacked series for each direction, this
-     * array denotes the order.
-     */
-    private static final Direction[] DIRECTIONS = {
-        Direction.NORTH,
-        Direction.EAST,
-        Direction.SOUTH,
-        Direction.WEST
-    };
+
+
+        int themeNUM=1;
+
+
+        /**
+         * The sprite files are vertically stacked series for each direction, this
+         * array denotes the order.
+         */
+        private static final Direction[] DIRECTIONS = {
+            Direction.NORTH,
+            Direction.EAST,
+            Direction.SOUTH,
+            Direction.WEST
+        };
 
     /**
      * The image size in pixels.
@@ -54,8 +61,25 @@ public class PacManSprites extends SpriteStore {
     /**
      * @return A map of animated Pac-Man sprites for all directions.
      */
+
     public Map<Direction, Sprite> getPacmanSprites() {
-        return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+
+        if (themeNUM == 1){
+            System.out.println("theme before create sprite1 = "+themeNUM );
+            return directionSprite("/sprite/Vivid/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
+        if (themeNUM == 2){
+            System.out.println("theme before create sprite1 = "+themeNUM );
+            return directionSprite("/sprite/City/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
+        if (themeNUM == 3){
+            System.out.println("theme before create sprite1 = "+themeNUM );
+            return directionSprite("/sprite/Space/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
+        else {
+            System.out.println("theme before create sprite2 = "+themeNUM );
+            return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
     }
 
     /**
@@ -107,31 +131,89 @@ public class PacManSprites extends SpriteStore {
     public Map<Direction, Sprite> getGhostSprite(GhostColor color) {
         assert color != null;
 
-        String resource = "/sprite/ghost_" + color.name().toLowerCase()
+        if (themeNUM == 1){
+            String resource = "/sprite/Vivid/ghast_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+        if (themeNUM == 2){
+            String resource = "/sprite/City/city_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+        if (themeNUM == 3){
+            String resource = "/sprite/Space/space_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+        else {
+            String resource = "/sprite/ghost_" + color.name().toLowerCase()
             + ".png";
-        return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+
     }
 
     /**
      * @return The sprite for the wall.
      */
     public Sprite getWallSprite() {
-        return loadSprite("/sprite/wall.png");
+        if (themeNUM == 1){
+            return loadSprite("/sprite/Vivid/wall.png");
+        }
+        if (themeNUM == 2){
+            return loadSprite("/sprite/City/wall.png");
+        }
+        if (themeNUM == 3){
+            return loadSprite("/sprite/Space/wall.png");
+        }
+        else {
+            return loadSprite("/sprite/wall.png");
+        }
+
     }
 
     /**
      * @return The sprite for the ground.
      */
     public Sprite getGroundSprite() {
-        return loadSprite("/sprite/floor.png");
+        if (themeNUM == 1){
+            return loadSprite("/sprite/Vivid/floor.png");
+        }
+        if (themeNUM == 2){
+            return loadSprite("/sprite/City/floor.png");
+        }
+        if (themeNUM == 3){
+            return loadSprite("/sprite/Space/floor.png");
+        }
+        else {
+            return loadSprite("/sprite/floor.png");
+        }
+
     }
+
+
 
     /**
      * @return The sprite for the
      */
     public Sprite getPelletSprite() {
-        return loadSprite("/sprite/pellet.png");
+        if (themeNUM == 1){
+            return loadSprite("/sprite/Vivid/pellet.png");
+        }
+        if (themeNUM == 2){
+            return loadSprite("/sprite/City/pellet.png");
+        }
+        if (themeNUM == 3){
+            return loadSprite("/sprite/Space/pellet.png");
+        }
+        else {
+            return loadSprite("/sprite/pellet.png");
+        }
+
     }
+
+
 
     /**
      * Overloads the default sprite loading, ignoring the exception. This class
@@ -148,4 +230,7 @@ public class PacManSprites extends SpriteStore {
             throw new PacmanConfigurationException("Unable to load sprite: " + resource, e);
         }
     }
+
+
+
 }

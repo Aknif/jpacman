@@ -8,10 +8,12 @@ import java.awt.*;
 
 public class newDifficultyUI extends JFrame {
 
+    int Memstage = 0;
     private int defaultDiff = 1;
 
     public newDifficultyUI(int stage) {
 
+        Memstage = stage;
         setSize(800, 600);
         setTitle("Difficulty Selection");
         setLocationRelativeTo(null);
@@ -170,11 +172,11 @@ public class newDifficultyUI extends JFrame {
                 else if(stage==5){
                     new Launcher().DYNAMIC_MAP = "/board5N.txt";
                 }
-                new Launcher().launch();
+                ThemeUI theme = new ThemeUI(stage);
                 dispose();
             }
             else {
-                new Launcher().launch();
+                ThemeUI theme = new ThemeUI(stage);
                 dispose();
             }
         });
