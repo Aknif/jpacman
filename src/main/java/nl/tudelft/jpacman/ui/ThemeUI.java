@@ -9,7 +9,12 @@ public class ThemeUI extends JFrame {
 
 
 
-    int defaultTheme = 1;
+    int defaultTheme;
+
+    public ThemeUI() {
+
+    }
+
     public ThemeUI(int stage) {
 
 
@@ -122,6 +127,14 @@ public class ThemeUI extends JFrame {
 
         pack();
         setVisible(true);
+    }
+
+    public int getDefaultTheme() {
+        return defaultTheme;
+    }
+
+    public void setDefaultTheme(int defaultTheme) {
+        this.defaultTheme = defaultTheme;
     }
 
     public static void main(String[] args) {

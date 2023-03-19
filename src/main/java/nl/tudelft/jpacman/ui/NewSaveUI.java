@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.ui;
 import nl.tudelft.jpacman.level.Player;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.HashMap;
@@ -38,11 +39,12 @@ public class NewSaveUI extends JFrame {
         ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/SummitButton/Summit Button210x58.png");
 
         //Create Button
-        JButton summitButton = new JButton(transparentIcon1);
-        summitButton.setBorderPainted(false); // Remove the border
+        JButton summitButton = new JButton("SUBMIT");
+        /*summitButton.setBorderPainted(false); // Remove the border
         summitButton.setContentAreaFilled(false); // Remove the background color
         summitButton.setFocusPainted(false); // Remove the focus border
-
+         */
+        summitButton.setFont(new Font("Arial", Font.PLAIN, 20));
 
 
 
@@ -66,6 +68,7 @@ public class NewSaveUI extends JFrame {
             scores.put(name, finalscore);
             saveScoresToFile();
             JOptionPane.showMessageDialog(NewSaveUI.this, "Score saved successfully!");
+            HomeUI homeUI =new HomeUI();
             dispose();
         });
 

@@ -8,6 +8,7 @@ import nl.tudelft.jpacman.PacmanConfigurationException;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.npc.ghost.GhostColor;
 
+import nl.tudelft.jpacman.ui.Memo;
 import nl.tudelft.jpacman.ui.ThemeUI;
 
 /**
@@ -17,10 +18,7 @@ import nl.tudelft.jpacman.ui.ThemeUI;
  */
 public class PacManSprites extends SpriteStore {
 
-
-
-        int themeNUM=1;
-
+        int themeNUM;
 
         /**
          * The sprite files are vertically stacked series for each direction, this
@@ -63,7 +61,6 @@ public class PacManSprites extends SpriteStore {
      */
 
     public Map<Direction, Sprite> getPacmanSprites() {
-
         if (themeNUM == 1){
 
             return directionSprite("/sprite/Vivid/pacman.png", PACMAN_ANIMATION_FRAMES);
