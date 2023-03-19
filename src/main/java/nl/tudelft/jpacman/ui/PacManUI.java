@@ -1,7 +1,6 @@
 package nl.tudelft.jpacman.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
+import java.awt.*;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -73,9 +72,10 @@ public class PacManUI extends JFrame {
         assert buttons != null;
         assert keyMappings != null;
 
-        //setSize(1000, 800);
-        setLocationRelativeTo(null);
-
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int W = (int) screenSize.getWidth();
+        int H = (int) screenSize.getHeight();
+        setLocation(W/3,H/5);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         PacKeyListener keys = new PacKeyListener(keyMappings);
