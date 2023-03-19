@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman;
 
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.game.Game;
@@ -24,10 +25,9 @@ import java.awt.event.ActionListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
-public class JpacmanTest_UC005 {
+public class JpacmanTest_Sprint2_UC002 {
     private Launcher launcher;
 
     private MapParser parser;
@@ -55,8 +55,8 @@ public class JpacmanTest_UC005 {
     }
 
     @Test
-    @DisplayName("TS039_TC01 - press the casual button.")
-    void UC005_TS039_TC01_MainMenu(){
+    @DisplayName("TS002_TC01 - press the casual button.")
+    void UC002_TS002_TC01_MainMenu(){
         JPanel panel = new JPanel();
 
         JButton CasaulButton = new JButton("Casual");
@@ -73,8 +73,8 @@ public class JpacmanTest_UC005 {
         assertTrue(panel.isVisible());
     }
     @Test
-    @DisplayName("TS040_TC01 - press the Endless button.")
-    void UC005_TS040_TC01_MainMenu(){
+    @DisplayName("TS003_TC01 - press the Endless button.")
+    void UC002_TS003_TC01_MainMenu(){
         JPanel panel = new JPanel();
 
         JButton EndlessButton = new JButton("Endless");
@@ -91,8 +91,8 @@ public class JpacmanTest_UC005 {
         assertTrue(panel.isVisible());
     }
     @Test
-    @DisplayName("TS041_TC01 - press the Score button.")
-    void UC005_TS041_TC01_MainMenu(){
+    @DisplayName("TS004_TC01 - press the Score button.")
+    void UC002_TS004_TC01_MainMenu(){
         final boolean[] text = {false};
         JPanel panel = new JPanel();
 
@@ -110,8 +110,8 @@ public class JpacmanTest_UC005 {
         assertTrue(panel.isVisible());
     }
     @Test
-    @DisplayName("TS042_TC01 - Press on the map to play.")
-    void UC005_TS042_TC01_MapMenu() {
+    @DisplayName("TS005_TC01 - Press on the map to play.")
+    void UC002_TS005_TC01_MapMenu() {
         JPanel panel = new JPanel();
         JButton map1;
         final boolean[] check = {false};
@@ -130,8 +130,8 @@ public class JpacmanTest_UC005 {
         assertTrue(check[0]);
     }
     @Test
-    @DisplayName("S043_TC01 - When clicking the \"Next\" button by selecting a stage")
-    void UC005_TS043_TC01_MapMenu() {
+    @DisplayName("S006_TC01 - When clicking the \"Next\" button by selecting a stage")
+    void UC002_TS006_TC01_MapMenu() {
         JPanel panel = new JPanel();
         JButton next;
         JButton map1;
@@ -161,8 +161,8 @@ public class JpacmanTest_UC005 {
         assertTrue(panel.isVisible());
     }
     @Test
-    @DisplayName("TS044_TC01 - When clicking the \"Next\" button without selecting a level")
-    void UC005_TS044_TC01_MapMenu() {
+    @DisplayName("TS007_TC01 - When clicking the \"Next\" button without selecting a level")
+    void UC002_TS007_TC01_MapMenu() {
         JPanel panel = new JPanel();
         JButton next;
         JButton easy;
@@ -206,8 +206,8 @@ public class JpacmanTest_UC005 {
         assertTrue(panel.isVisible());
     }
     @Test
-    @DisplayName("TS045_TC01 - Press the \"Prev\" button")
-    void UC005_TS045_TC01_MapMenu() {
+    @DisplayName("TS008_TC01 - Press the \"Prev\" button")
+    void UC002_TS008_TC01_MapMenu() {
         JPanel panel = new JPanel();
         JButton prev;
 
@@ -227,15 +227,8 @@ public class JpacmanTest_UC005 {
         assertTrue(panel.isVisible());
     }
     @Test
-    @DisplayName("TS046_TC01 - Click on the difficulty option.")
-    void UC005_TS046_TC01_DifficultyMenu() {
-        String[] difficultyOptions = {"Easy", "Normal", "Hard"};
-        String[] expected = {"Easy", "Normal", "Hard"};
-        assertArrayEquals(expected,difficultyOptions);
-    }
-    @Test
-    @DisplayName("TS047_TC01 - Press the \"Start\" button, selecting the difficulty level.")
-    void UC005_TS047_TC01_DifficultyMenu() {
+    @DisplayName("TS009_TC01 - Click on the difficulty option.")
+    void UC002_TS009_TC01_DifficultyMenu() {
         JPanel panel = new JPanel();
         JButton select;
         select = new JButton("select");
@@ -260,8 +253,8 @@ public class JpacmanTest_UC005 {
         assertThat(panel.isVisible());
     }
     @Test
-    @DisplayName("TS048_TC01 - Press the \"Start\" button without selecting the difficulty level.")
-    void UC005_TS048_TC01_DifficultyMenu() {
+    @DisplayName("TS010_TC01 - Click on the difficulty option.")
+    void UC002_TS010_TC01_DifficultyMenu() {
         JPanel panel = new JPanel();
         JButton select;
         select = new JButton("select");
@@ -269,6 +262,8 @@ public class JpacmanTest_UC005 {
         String[] difficultyOptions = {"Easy", "Normal", "Hard"};
         JComboBox<String> comboBox = new JComboBox<String>(difficultyOptions);
         panel.add(comboBox);
+        comboBox.setSelectedItem(null);
+        assertEquals(null, comboBox.getSelectedItem());
 
         select.addActionListener(new ActionListener() {
             @Override
@@ -284,24 +279,77 @@ public class JpacmanTest_UC005 {
         assertThat(panel.isVisible());
     }
     @Test
-    @DisplayName("TS049_TC01 Press the \"Prev\" button.")
-    void UC005_TS049_TC01_DifficultyMenu() {
+    @DisplayName("TS010_TC01 - Click on the difficulty option.")
+    void UC002_TS011_TC01_DifficultyMenu() {
         JPanel panel = new JPanel();
-        JButton prev;
+        JButton back;
+        back = new JButton("back");
 
-        prev = new JButton("prev");
+        String[] difficultyOptions = {"Easy", "Normal", "Hard"};
+        JComboBox<String> comboBox = new JComboBox<String>(difficultyOptions);
+        panel.add(comboBox);
+        comboBox.setSelectedItem(null);
+        assertEquals(null, comboBox.getSelectedItem());
 
-        prev.addActionListener(new ActionListener() {
+        back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MapUI();
+                HomeUI homeUI = new HomeUI();
+                //start with easy difficult
                 panel.setVisible(true);
             }
         });
+        panel.add(back);
+        back.doClick();
 
-        panel.add(prev);
-        prev.doClick();
+        assertThat(panel.isVisible());
+    }
+    @Test
+    @DisplayName("TS010_TC01 - Click on the difficulty option.")
+    void UC002_TS012_TC01_DifficultyMenu() {
+        JPanel panel = new JPanel();
+        JButton select =  new JButton("select");
 
-        assertTrue(panel.isVisible());
+        String[] difficultyOptions = {"vivid", "city", "space"};
+        JComboBox<String> comboBox = new JComboBox<String>(difficultyOptions);
+        panel.add(comboBox);
+        comboBox.setSelectedItem("vivid");
+        assertEquals("vivid", comboBox.getSelectedItem());
+
+        select.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Launcher().launch();
+                panel.setVisible(true);
+            }
+        });
+        panel.add(select);
+        select.doClick();
+
+        assertThat(panel.isVisible());
+    }
+    @Test
+    @DisplayName("TS010_TC01 - Click on the difficulty option.")
+    void UC002_TS013_TC01_DifficultyMenu() {
+        JPanel panel = new JPanel();
+        JButton select =  new JButton("select");
+
+        String[] difficultyOptions = {"vivid", "city", "space"};
+        JComboBox<String> comboBox = new JComboBox<String>(difficultyOptions);
+        panel.add(comboBox);
+        comboBox.setSelectedItem(null);
+        assertEquals(null, comboBox.getSelectedItem());
+
+        select.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Launcher().launch();
+                panel.setVisible(true);
+            }
+        });
+        panel.add(select);
+        select.doClick();
+
+        assertThat(panel.isVisible());
     }
 }

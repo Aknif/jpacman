@@ -10,6 +10,7 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.npc.ghost.GhostFactory;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
+import nl.tudelft.jpacman.ui.DifficultyUI;
 import nl.tudelft.jpacman.ui.HomeUI;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -102,7 +103,7 @@ public class TC006Test {
         next.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DifficultyUI difficultyUI = new DifficultyUI();
+                DifficultyUI difficultyUI = new DifficultyUI(1);
                 panel.setVisible(true);
             }
         });
@@ -129,7 +130,7 @@ public class TC006Test {
         next.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DifficultyUI difficultyUI = new DifficultyUI();
+                DifficultyUI difficultyUI = new DifficultyUI(1);
             }
         });
 
