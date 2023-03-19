@@ -29,6 +29,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'top.jfunc.json:Json-Gson:1.0'
     compile "com.google.guava:guava:$guavaVersion"
 
     compileOnly "com.github.spotbugs:spotbugs-annotations:$spotbugsAnnotationsVersion"

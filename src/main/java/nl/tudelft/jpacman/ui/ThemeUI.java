@@ -9,7 +9,7 @@ public class ThemeUI extends JFrame {
 
 
 
-    int defaultTheme;
+    int defaultTheme = 1;
 
     public ThemeUI(int stage) {
 

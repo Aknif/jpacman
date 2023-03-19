@@ -1,21 +1,20 @@
 package nl.tudelft.jpacman.ui;
 
-import nl.tudelft.jpacman.Launcher;
-import nl.tudelft.jpacman.level.Player;
+import com.google.gson.Gson;
+import nl.tudelft.jpacman.LongTum.PacManScore;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
-import java.nio.file.Files;
-import java.util.HashMap;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class NewSaveUI extends JFrame {
 
     JTextField textField;
-
-    private HashMap<String, Integer> scores = new HashMap<>();
+    private List<PacManScore.Score> scores;
     int finalscore = 10;
     public NewSaveUI(){
         setSize(600, 380);
@@ -65,17 +64,19 @@ public class NewSaveUI extends JFrame {
         setVisible(true);
 
         summitButton.addActionListener(e -> {
-            String name = textField.getText();
-            scores.put(name, finalscore);
+            scores = new ArrayList<>();
+            String name;
+            name = textField.getText();
+            scores.add(new PacManScore.Score(name, finalscore));
             saveScoresToFile();
             JOptionPane.showMessageDialog(NewSaveUI.this, "Score saved successfully!");
-                Window[] windows = Window.getWindows();
-                for (Window window : windows) {
-                    if (window instanceof JFrame) {
-                        window.dispose();
-                    }
+            Window[] windows = Window.getWindows();
+            for (Window window : windows) {
+                if (window instanceof JFrame) {
+                    window.dispose();
                 }
-            HomeUI homeUI =new HomeUI();
+            }
+            HomeUI homeUI = new HomeUI();
             dispose();
         });
 
@@ -83,17 +84,30 @@ public class NewSaveUI extends JFrame {
     }
 
     private void saveScoresToFile() {
-        File fileToSave = new File("src/main/resources/score.json");
-        try {
-            FileWriter writer = new FileWriter(fileToSave, true);
-            writer.write(scores.toString());
-            writer.write("\n");
-            writer.close();
+        Gson gson = new Gson();
+        try (FileWriter writer = new FileWriter("scores.json")) {
+            gson.toJson(scores, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    private static class Score {
+        private String name;
+        private int score;
 
+        public Score(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getScore() {
+            return score;
+        }
+    }
     public static void main(String[] args) {
         NewSaveUI Saveui = new NewSaveUI();
     }
