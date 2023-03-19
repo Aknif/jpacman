@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.ui;
 
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.level.Player;
 
 import javax.swing.*;
@@ -68,6 +69,12 @@ public class NewSaveUI extends JFrame {
             scores.put(name, finalscore);
             saveScoresToFile();
             JOptionPane.showMessageDialog(NewSaveUI.this, "Score saved successfully!");
+                Window[] windows = Window.getWindows();
+                for (Window window : windows) {
+                    if (window instanceof JFrame) {
+                        window.dispose();
+                    }
+                }
             HomeUI homeUI =new HomeUI();
             dispose();
         });
