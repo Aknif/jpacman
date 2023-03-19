@@ -8,7 +8,6 @@ import nl.tudelft.jpacman.PacmanConfigurationException;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.npc.ghost.GhostColor;
 
-import nl.tudelft.jpacman.ui.Memo;
 import nl.tudelft.jpacman.ui.ThemeUI;
 
 /**
