@@ -1,10 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
-import nl.tudelft.jpacman.level.Player;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
 
 public class ScoreUI extends JFrame {
     private JLabel scoreLabel;

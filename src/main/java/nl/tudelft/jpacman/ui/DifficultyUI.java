@@ -3,15 +3,13 @@ package nl.tudelft.jpacman.ui;
 import nl.tudelft.jpacman.Launcher;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
 
-public class newDifficultyUI extends JFrame {
+public class DifficultyUI extends JFrame {
 
     int Memstage = 0;
     private int defaultDiff = 1;
 
-    public newDifficultyUI(int stage) {
+    public DifficultyUI(int stage) {
 
         Memstage = stage;
         setSize(800, 600);
@@ -146,7 +144,7 @@ public class newDifficultyUI extends JFrame {
         PreviousButton.setFocusPainted(false);
 
         PreviousButton.addActionListener(e -> {
-            NewMapUI mapUI = new NewMapUI();
+            MapUI mapUI = new MapUI();
             dispose();
         });
 
@@ -204,6 +202,6 @@ public class newDifficultyUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        new newDifficultyUI(1);
+        new DifficultyUI(1);
     }
 }

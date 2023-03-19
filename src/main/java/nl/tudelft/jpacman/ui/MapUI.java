@@ -1,10 +1,8 @@
 package nl.tudelft.jpacman.ui;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
 
-public class NewMapUI extends JFrame {
+public class MapUI extends JFrame {
 
     public int stage = 1;
 
@@ -15,7 +13,7 @@ public class NewMapUI extends JFrame {
     public void setStage(int stage) {
         this.stage = stage;
     }
-    public NewMapUI() {
+    public MapUI() {
 
         setSize(800, 600);
         setTitle("Stage Selection");
@@ -160,7 +158,7 @@ public class NewMapUI extends JFrame {
         NextButton.setFocusPainted(false);
 
         NextButton.addActionListener(e -> {
-            newDifficultyUI difficultyUI = new newDifficultyUI(stage);
+            DifficultyUI difficultyUI = new DifficultyUI(stage);
             difficultyUI.setVisible(true);
             dispose();
         });
@@ -194,6 +192,6 @@ public class NewMapUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        new NewMapUI();
+        new MapUI();
     }
 }

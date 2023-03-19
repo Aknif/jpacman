@@ -87,7 +87,7 @@ public class ThemeUI extends JFrame {
         PreviousButton.setContentAreaFilled(false);
         PreviousButton.setFocusPainted(false);
         PreviousButton.addActionListener(e -> {
-            newDifficultyUI diffUI = new newDifficultyUI(stage);
+            DifficultyUI diffUI = new DifficultyUI(stage);
             dispose();
         });
 

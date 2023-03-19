@@ -1,6 +1,5 @@
 package nl.tudelft.jpacman.ui;
 
-import java.awt.*;
 import javax.swing.*;
 
 public class HomeUI extends JFrame {
@@ -29,7 +28,7 @@ public class HomeUI extends JFrame {
         CasualButton.setFocusPainted(false); // Remove the focus border
 
         CasualButton.addActionListener(e -> {
-            NewMapUI newMapUI = new NewMapUI();
+            MapUI newMapUI = new MapUI();
             newMapUI.setVisible(true);
             dispose();
         });

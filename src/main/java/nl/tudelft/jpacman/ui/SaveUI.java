@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NewSaveUI extends JFrame {
+public class SaveUI extends JFrame {
 
     JTextField textField;
     private List<PacManScore.Score> scores;
     int finalscore = 10;
-    public NewSaveUI(){
+    public SaveUI(){
         setSize(600, 380);
         setTitle("Save");
         setLocationRelativeTo(null);
@@ -69,7 +69,7 @@ public class NewSaveUI extends JFrame {
             name = textField.getText();
             scores.add(new PacManScore.Score(name, finalscore));
             saveScoresToFile();
-            JOptionPane.showMessageDialog(NewSaveUI.this, "Score saved successfully!");
+            JOptionPane.showMessageDialog(SaveUI.this, "Score saved successfully!");
             Window[] windows = Window.getWindows();
             for (Window window : windows) {
                 if (window instanceof JFrame) {
@@ -109,7 +109,7 @@ public class NewSaveUI extends JFrame {
         }
     }
     public static void main(String[] args) {
-        NewSaveUI Saveui = new NewSaveUI();
+        SaveUI Saveui = new SaveUI();
     }
 
 }
