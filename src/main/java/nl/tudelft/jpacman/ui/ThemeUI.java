@@ -46,7 +46,7 @@ public class ThemeUI extends JFrame {
         imageLabel.setBorderPainted(false);
         imageLabel.setContentAreaFilled(false);
         imageLabel.setFocusPainted(false);
-        imageLabel.setBounds(400, 130, 330, 303);
+        imageLabel.setBounds(400, 150, 330, 303);
         backgroundLabel.add(imageLabel);
 
         //Create button
@@ -108,16 +108,16 @@ public class ThemeUI extends JFrame {
             dispose();
         });
 
-        DefaultButton.setBounds(buttonX-200, buttonY-135, buttonWidth, buttonHeight);
+        DefaultButton.setBounds(buttonX-200, buttonY-110, buttonWidth, buttonHeight);
         backgroundLabel.add(DefaultButton);
 
-        VividButton.setBounds(buttonX-200, buttonY-70, buttonWidth, buttonHeight);
+        VividButton.setBounds(buttonX-200, buttonY-35, buttonWidth, buttonHeight);
         backgroundLabel.add(VividButton);
 
-        CityButton.setBounds(buttonX-200, buttonY, buttonWidth, buttonHeight);
+        CityButton.setBounds(buttonX-200, buttonY+40, buttonWidth, buttonHeight);
         backgroundLabel.add(CityButton);
 
-        SpaceButton.setBounds(buttonX-200, buttonY+65, buttonWidth, buttonHeight);
+        SpaceButton.setBounds(buttonX-200, buttonY+115, buttonWidth, buttonHeight);
         backgroundLabel.add(SpaceButton);
 
         PreviousButton.setBounds(buttonX-300, buttonY+250, buttonWidth, buttonHeight);
