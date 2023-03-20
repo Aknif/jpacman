@@ -66,6 +66,9 @@ public class SaveUI extends JFrame {
         summitButton.addActionListener(e -> {
 
             String name = textField.getText();
+            if(name.isEmpty()){
+                name = "Anonymous";
+            }
             int score = Player.getScore();
 
             JSONObject json = new JSONObject();
