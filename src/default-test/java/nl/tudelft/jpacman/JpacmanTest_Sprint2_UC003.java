@@ -1,6 +1,5 @@
 package nl.tudelft.jpacman;
 
-import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.game.Game;
@@ -10,16 +9,9 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.npc.ghost.GhostFactory;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
-import nl.tudelft.jpacman.ui.SaveUI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.nio.charset.Charset;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;

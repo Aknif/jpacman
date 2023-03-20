@@ -1,9 +1,14 @@
 package nl.tudelft.jpacman.ui;
 
+import nl.tudelft.jpacman.Launcher;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class RetryUI extends JFrame {
     public RetryUI() {
+
+
         setSize(300, 400);
         setTitle("Save");
         setLocationRelativeTo(null);
@@ -29,11 +34,25 @@ public class RetryUI extends JFrame {
         RetryButton.setBorderPainted(false); // Remove the border
         RetryButton.setContentAreaFilled(false); // Remove the background color
         RetryButton.setFocusPainted(false); // Remove the focus border
+        RetryButton.addActionListener(e -> {
+            Window[] windows = Window.getWindows();
+            for (Window window : windows) {
+                if (window instanceof JFrame) {
+                    window.dispose();
+                }
+            }
+            new Launcher().launch();
+            dispose();
+        });
 
         JButton MainButton = new JButton(transparentIcon2);
         MainButton.setBorderPainted(false); // Remove the border
         MainButton.setContentAreaFilled(false); // Remove the background color
         MainButton.setFocusPainted(false); // Remove the focus border
+        MainButton.addActionListener(e -> {
+            SaveUI saveUI = new SaveUI();
+            dispose();
+        });
 
         RetryButton.setBounds(buttonX -9, buttonY, buttonWidth, buttonHeight);
         backgroundLabel.add(RetryButton);
@@ -44,6 +63,8 @@ public class RetryUI extends JFrame {
 
         add(backgroundLabel);
         setVisible(true);
+
+
 
     }
 

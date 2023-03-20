@@ -1,13 +1,11 @@
 package nl.tudelft.jpacman.ui;
 
-import com.google.gson.Gson;
 import nl.tudelft.jpacman.level.Pellet;
 import nl.tudelft.jpacman.level.Player;
 import top.jfunc.json.impl.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -49,8 +47,6 @@ public class SaveUI extends JFrame {
         summitButton.setFocusPainted(false); // Remove the focus border
          */
         summitButton.setFont(new Font("Arial", Font.PLAIN, 20));
-
-
 
         //add BG image
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/FinalScore_600x350.png"));
@@ -129,8 +125,9 @@ public class SaveUI extends JFrame {
             return score;
         }
     }
+
     public static void main(String[] args) {
-        SaveUI Saveui = new SaveUI();
+        SaveUI saveui = new SaveUI();
     }
 
 }
