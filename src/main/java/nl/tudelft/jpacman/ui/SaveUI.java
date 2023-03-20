@@ -41,12 +41,11 @@ public class SaveUI extends JFrame {
         ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/SummitButton/Summit Button210x58.png");
 
         //Create Button
-        JButton summitButton = new JButton("SUBMIT");
-        /*summitButton.setBorderPainted(false); // Remove the border
+        JButton summitButton = new JButton(transparentIcon1);
+        summitButton.setBorderPainted(false); // Remove the border
         summitButton.setContentAreaFilled(false); // Remove the background color
         summitButton.setFocusPainted(false); // Remove the focus border
-         */
-        summitButton.setFont(new Font("Arial", Font.PLAIN, 20));
+
 
         //add BG image
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/FinalScore_600x350.png"));

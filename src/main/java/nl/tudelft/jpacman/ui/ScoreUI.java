@@ -80,7 +80,7 @@ public class ScoreUI extends JFrame {
         for (JSONObject scoreObj : scoreList) {
             sb.append("<span style='font-size: 18px;'>").append(scoreObj.getString("name")).append(": </span>")
                 .append("&nbsp;&nbsp;&nbsp;&nbsp;").append("<span style='font-size: 20px;'>").append(scoreObj.getInteger("score")).append("</span>")
-                .append("<br><br><br>");
+                .append("<br><br>");
             count++;
             if (count == 5) {
                 break;

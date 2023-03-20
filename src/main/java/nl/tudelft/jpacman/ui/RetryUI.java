@@ -23,17 +23,20 @@ public class RetryUI extends JFrame {
         int buttonY = (frameHeight - buttonHeight) / 2;
 
 
-
         ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/Retry  266, 58 px.png");
         ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/Main Menu  266, 58 px.png");
 
         //add BG image
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Retry 300,400px.png"));
 
-        JButton RetryButton = new JButton(transparentIcon1);
-        RetryButton.setBorderPainted(false); // Remove the border
+        JButton RetryButton = new JButton("Retry");
+        //RetryButton.setBorderPainted(false); // Remove the border
         RetryButton.setContentAreaFilled(false); // Remove the background color
         RetryButton.setFocusPainted(false); // Remove the focus border
+
+        RetryButton.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+        RetryButton.setForeground(Color.WHITE);
+
         RetryButton.addActionListener(e -> {
             Window[] windows = Window.getWindows();
             for (Window window : windows) {
@@ -45,10 +48,12 @@ public class RetryUI extends JFrame {
             dispose();
         });
 
-        JButton MainButton = new JButton(transparentIcon2);
-        MainButton.setBorderPainted(false); // Remove the border
+        JButton MainButton = new JButton("Main Menu");
+        //MainButton.setBorderPainted(false); // Remove the border
         MainButton.setContentAreaFilled(false); // Remove the background color
         MainButton.setFocusPainted(false); // Remove the focus border
+        MainButton.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+        MainButton.setForeground(Color.WHITE);
         MainButton.addActionListener(e -> {
             SaveUI saveUI = new SaveUI();
             dispose();
