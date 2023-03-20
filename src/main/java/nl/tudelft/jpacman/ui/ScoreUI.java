@@ -51,11 +51,7 @@ public class ScoreUI extends JFrame {
         add(scoreLabel, BorderLayout.CENTER);
     }
 
-    public void updateScore(int points) {
-        // Update the score and update the JLabel to display it
-        score += points;
-        scoreLabel.setText("Score: " + score);
-    }
+
     public static void main(String[] args){
         ScoreUI scoreUI = new ScoreUI();
     }
