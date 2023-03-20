@@ -1,12 +1,15 @@
 package nl.tudelft.jpacman.ui;
 
 import com.google.gson.Gson;
-import nl.tudelft.jpacman.LongTum.PacManScore;
+import nl.tudelft.jpacman.level.Pellet;
+import nl.tudelft.jpacman.level.Player;
+import top.jfunc.json.impl.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +17,9 @@ import java.util.List;
 public class SaveUI extends JFrame {
 
     JTextField textField;
-    private List<PacManScore.Score> scores;
-    int finalscore = 10;
+    private List<Score> scores = new ArrayList<Score>();
+    private Pellet pellet;
+    int score = 10;
     public SaveUI(){
         setSize(600, 380);
         setTitle("Save");
@@ -64,11 +68,34 @@ public class SaveUI extends JFrame {
         setVisible(true);
 
         summitButton.addActionListener(e -> {
-            scores = new ArrayList<>();
-            String name;
-            name = textField.getText();
-            scores.add(new PacManScore.Score(name, finalscore));
-            saveScoresToFile();
+
+            String name = textField.getText();
+            int score = Player.getScore();
+
+            JSONObject json = new JSONObject();
+            json.put("name", name);
+            json.put("score", score);
+
+            try (RandomAccessFile file = new RandomAccessFile("scores.json", "rw")) {
+                long length = file.length();
+                if (length > 0) {
+                    file.seek(length - 1); // move file pointer to last byte
+                    byte lastByte = file.readByte();
+                    if (lastByte == ']') {
+                        file.seek(length - 1); // move file pointer back one byte
+                        file.writeBytes(","); // write comma separator
+                    } else {
+                        file.seek(length); // move file pointer to end of file
+                    }
+                } else {
+                    file.writeBytes("["); // write opening bracket
+                }
+                file.writeBytes(json.toString()); // write JSON object
+                file.writeBytes("]"); // write closing bracket
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
             JOptionPane.showMessageDialog(SaveUI.this, "Score saved successfully!");
             Window[] windows = Window.getWindows();
             for (Window window : windows) {
@@ -83,14 +110,8 @@ public class SaveUI extends JFrame {
 
     }
 
-    private void saveScoresToFile() {
-        Gson gson = new Gson();
-        try (FileWriter writer = new FileWriter("scores.json", true)) {
-            gson.toJson(scores, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+
     private static class Score {
         private String name;
         private int score;
