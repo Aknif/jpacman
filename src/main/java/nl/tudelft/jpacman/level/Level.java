@@ -16,6 +16,7 @@ import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.npc.Ghost;
+import nl.tudelft.jpacman.ui.Faker;
 import nl.tudelft.jpacman.ui.RetryUI;
 
 
@@ -269,14 +270,16 @@ public class Level {
             for (LevelObserver observer : observers) {
                 observer.levelLost();
                 /**Add UI Redirect**/
-                RetryUI retryUI = new RetryUI();
+                Faker faker = new Faker();
+                //RetryUI retryUI = new RetryUI();
             }
         }
         if (remainingPellets() == 0) {
             for (LevelObserver observer : observers) {
                 observer.levelWon();
                 /**Add UI Redirect**/
-                RetryUI retryUI = new RetryUI();
+                Faker faker = new Faker();
+                //RetryUI retryUI = new RetryUI();
             }
         }
     }
