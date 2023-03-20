@@ -32,7 +32,7 @@ public class ThemeUI extends JFrame {
         ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/back  116, 51 px.png");
         ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
 
-        ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 266, 58 px/Default  266, 58 px.png");
+        ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 266, 58 px/Classic 266,58px.png");
 
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Themes_BG_800x600 px.png"));
 
