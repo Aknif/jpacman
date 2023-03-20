@@ -85,7 +85,7 @@ public class SaveUI extends JFrame {
 
     private void saveScoresToFile() {
         Gson gson = new Gson();
-        try (FileWriter writer = new FileWriter("scores.json")) {
+        try (FileWriter writer = new FileWriter("scores.json", true)) {
             gson.toJson(scores, writer);
         } catch (IOException e) {
             e.printStackTrace();
