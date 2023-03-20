@@ -1,7 +1,8 @@
 package nl.tudelft.jpacman.ui;
 
 import com.google.gson.Gson;
-import nl.tudelft.jpacman.LongTum.PacManScore;
+import nl.tudelft.jpacman.level.Pellet;
+import nl.tudelft.jpacman.level.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,8 +15,9 @@ import java.util.List;
 public class SaveUI extends JFrame {
 
     JTextField textField;
-    private List<PacManScore.Score> scores;
-    int finalscore = 10;
+    private List<Score> scores = new ArrayList<Score>();
+    private Pellet pellet;
+    int score = 10;
     public SaveUI(){
         setSize(600, 380);
         setTitle("Save");
@@ -64,10 +66,9 @@ public class SaveUI extends JFrame {
         setVisible(true);
 
         summitButton.addActionListener(e -> {
-            scores = new ArrayList<>();
             String name;
             name = textField.getText();
-            scores.add(new PacManScore.Score(name, finalscore));
+            scores.add(new Score(name, Player.getScore()));
             saveScoresToFile();
             JOptionPane.showMessageDialog(SaveUI.this, "Score saved successfully!");
             Window[] windows = Window.getWindows();
@@ -91,6 +92,11 @@ public class SaveUI extends JFrame {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) {
+        SaveUI Saveui = new SaveUI();
+    }
+
     private static class Score {
         private String name;
         private int score;
@@ -108,8 +114,4 @@ public class SaveUI extends JFrame {
             return score;
         }
     }
-    public static void main(String[] args) {
-        SaveUI Saveui = new SaveUI();
-    }
-
 }
