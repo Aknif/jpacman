@@ -37,7 +37,7 @@ public class ThemeUI extends JFrame {
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Themes_BG_800x600 px.png"));
 
         ImageIcon VividImage = new ImageIcon("src/main/resources/Description 330,303 px/theme.png");
-        ImageIcon CityImage = new ImageIcon("src/main/resources/Description 330,303 px/theme3.png");
+        ImageIcon CityImage = new ImageIcon("src/main/resources/Description 330,303 px/Theme3.png");
         ImageIcon SpaceImage = new ImageIcon("src/main/resources/Description 330,303 px/theme2.png");
         ImageIcon DefaultImage = new ImageIcon("src/main/resources/Description 330,303 px/Theme4.png");
 
