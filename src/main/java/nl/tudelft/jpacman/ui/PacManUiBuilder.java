@@ -24,6 +24,8 @@ public class PacManUiBuilder {
      */
     private static final String START_CAPTION = "Start";
 
+
+
     /**
      * Map of buttons and their actions.
      */
@@ -98,6 +100,8 @@ public class PacManUiBuilder {
         buttons.put(START_CAPTION, game::start);
     }
 
+
+
     /**
      * Adds a key listener to the UI.
      *
@@ -143,6 +147,7 @@ public class PacManUiBuilder {
         defaultButtons = true;
         buttons.put(START_CAPTION, null);
         buttons.put(STOP_CAPTION, null);
+
         return this;
     }
 

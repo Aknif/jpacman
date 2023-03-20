@@ -8,11 +8,7 @@ import javax.swing.*;
 public class ThemeUI extends JFrame {
 
 
-
-    int defaultTheme = 1;
-
     public ThemeUI(int stage) {
-
 
         setSize(800, 600);
         setTitle("Theme Selection");
@@ -36,21 +32,29 @@ public class ThemeUI extends JFrame {
         ImageIcon transparentIcon4 = new ImageIcon("src/main/resources/Button 116, 51 px/back  116, 51 px.png");
         ImageIcon transparentIcon5 = new ImageIcon("src/main/resources/Button 116, 51 px/next _ 116, 51 px.jpg");
 
+        ImageIcon transparentIcon6 = new ImageIcon("src/main/resources/Button 266, 58 px/Default  266, 58 px.png");
+
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Themes_BG_800x600 px.png"));
 
         ImageIcon VividImage = new ImageIcon("src/main/resources/Description 330,303 px/theme.png");
         ImageIcon CityImage = new ImageIcon("src/main/resources/Description 330,303 px/theme3.png");
         ImageIcon SpaceImage = new ImageIcon("src/main/resources/Description 330,303 px/theme2.png");
+        ImageIcon DefaultImage = new ImageIcon("src/main/resources/Description 330,303 px/Theme4.png");
 
-        JButton imageLabel = new JButton(VividImage);
+        JButton imageLabel = new JButton(DefaultImage);
         imageLabel.setSize(330,303);
         imageLabel.setBorderPainted(false);
         imageLabel.setContentAreaFilled(false);
         imageLabel.setFocusPainted(false);
-        imageLabel.setBounds(400, 150, 330, 303);
+        imageLabel.setBounds(400, 130, 330, 303);
         backgroundLabel.add(imageLabel);
 
         //Create button
+        JButton DefaultButton = new JButton(transparentIcon6);
+        DefaultButton.setBorderPainted(false);
+        DefaultButton.setContentAreaFilled(false);
+        DefaultButton.setFocusPainted(false);
+
         JButton VividButton = new JButton(transparentIcon1);
         VividButton.setBorderPainted(false); // Remove the border
         VividButton.setContentAreaFilled(false); // Remove the background color
@@ -67,6 +71,10 @@ public class ThemeUI extends JFrame {
         SpaceButton.setFocusPainted(false);
 
         //Add action to button
+        DefaultButton.addActionListener(e -> {
+            imageLabel.setIcon(DefaultImage);
+            PacManSprites.themeNUM=0;
+        });
         VividButton.addActionListener(e -> {
             imageLabel.setIcon(VividImage);
             PacManSprites.themeNUM=1;
@@ -98,16 +106,18 @@ public class ThemeUI extends JFrame {
         NextButton.addActionListener(e -> {
             new Launcher().launch();
             dispose();
-            });
+        });
 
+        DefaultButton.setBounds(buttonX-200, buttonY-135, buttonWidth, buttonHeight);
+        backgroundLabel.add(DefaultButton);
 
-        VividButton.setBounds(buttonX-200, buttonY-75, buttonWidth, buttonHeight);
+        VividButton.setBounds(buttonX-200, buttonY-70, buttonWidth, buttonHeight);
         backgroundLabel.add(VividButton);
 
         CityButton.setBounds(buttonX-200, buttonY, buttonWidth, buttonHeight);
         backgroundLabel.add(CityButton);
 
-        SpaceButton.setBounds(buttonX-200, buttonY+75, buttonWidth, buttonHeight);
+        SpaceButton.setBounds(buttonX-200, buttonY+65, buttonWidth, buttonHeight);
         backgroundLabel.add(SpaceButton);
 
         PreviousButton.setBounds(buttonX-300, buttonY+250, buttonWidth, buttonHeight);
@@ -122,16 +132,7 @@ public class ThemeUI extends JFrame {
         setVisible(true);
     }
 
-    public int getDefaultTheme() {
-        return defaultTheme;
-    }
-
-    public void setDefaultTheme(int defaultTheme) {
-        this.defaultTheme = defaultTheme;
-    }
-
     public static void main(String[] args) {
         new ThemeUI(1);
     }
-
 }

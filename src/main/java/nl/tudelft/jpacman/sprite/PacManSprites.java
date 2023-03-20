@@ -17,7 +17,7 @@ import nl.tudelft.jpacman.ui.ThemeUI;
  */
 public class PacManSprites extends SpriteStore {
 
-        public static int themeNUM = 1 ;
+        public static int themeNUM = 0 ;
 
         /**
          * The sprite files are vertically stacked series for each direction, this
