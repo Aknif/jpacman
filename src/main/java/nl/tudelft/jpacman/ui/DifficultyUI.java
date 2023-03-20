@@ -1,6 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
 import nl.tudelft.jpacman.Launcher;
+import nl.tudelft.jpacman.level.LevelFactory;
 
 import javax.swing.*;
 
@@ -94,6 +95,7 @@ public class DifficultyUI extends JFrame {
 
         normalButton.addActionListener(e -> {
             imageLabel.setIcon(normalImage);
+            LevelFactory.PELLET_VALUE = 20;
             if(stage==1){
                 new Launcher().DYNAMIC_MAP = "/board1N.txt";
             }
@@ -117,6 +119,7 @@ public class DifficultyUI extends JFrame {
 
         hardButton.addActionListener(e -> {
             imageLabel.setIcon(hardImage);
+            LevelFactory.PELLET_VALUE = 30;
             if(stage==1){
                 new Launcher().DYNAMIC_MAP = "/board1H.txt";
             }
