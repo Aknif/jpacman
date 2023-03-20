@@ -1,13 +1,12 @@
 package nl.tudelft.jpacman;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.level.Player;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Smoke test launching the full game,
@@ -24,7 +23,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author Arie van Deursen, March 2014.
  */
-public class LauncherSmokeTest {
+public class LoseTest {
 
     private Launcher launcher;
 
@@ -34,17 +33,13 @@ public class LauncherSmokeTest {
     @BeforeEach
     void setUpPacman() {
         launcher = new Launcher();
-        launcher.levelMap = "/board.txt";
+        launcher.levelMap = "/boardLoseTest.txt";
         launcher.launch();
     }
 
     /**
      * Quit the user interface when we're done.
      */
-    //@AfterEach
-    void tearDown() {
-        launcher.dispose();
-    }
 
     /**
      * Launch the game, and imitate what would happen in a typical game.
@@ -55,10 +50,10 @@ public class LauncherSmokeTest {
      */
     @SuppressWarnings({"magicnumber", "methodlength", "PMD.JUnitTestContainsTooManyAsserts"})
     @Test
-    void smokeTest() throws InterruptedException {
+    void LoseTest() throws InterruptedException {
         Game game = launcher.getGame();
+        Thread.sleep(2500L);
         Player player = game.getPlayers().get(0);
-
         // start cleanly.
         assertThat(game.isInProgress()).isFalse();
         game.start();
@@ -89,12 +84,14 @@ public class LauncherSmokeTest {
 
         // Sleeping in tests is generally a bad idea.
         // Here we do it just to let the monsters move.
-        Thread.sleep(500L);
+
 
         // we're close to monsters, this will get us killed.
-        move(game, Direction.WEST, 10);
-        move(game, Direction.EAST, 10);
+        move(game, Direction.WEST, 2);
+        Thread.sleep(1000L);
         assertThat(player.isAlive()).isFalse();
+
+        Thread.sleep(10000L);
 
         game.stop();
         assertThat(game.isInProgress()).isFalse();
