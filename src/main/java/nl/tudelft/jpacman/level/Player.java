@@ -1,11 +1,11 @@
 package nl.tudelft.jpacman.level;
 
-import java.util.Map;
-
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.sprite.AnimatedSprite;
 import nl.tudelft.jpacman.sprite.Sprite;
+
+import java.util.Map;
 
 /**
  * A player operated unit in our game.
@@ -17,7 +17,7 @@ public class Player extends Unit {
     /**
      * The amount of points accumulated by this player.
      */
-    private int score;
+    private static int score;
 
     /**
      * The animations for every direction.
@@ -106,7 +106,7 @@ public class Player extends Unit {
      *
      * @return The amount of points accumulated by this player.
      */
-    public int getScore() {
+    public static int getScore() {
         return score;
     }
 
