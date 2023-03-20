@@ -75,10 +75,12 @@ public class ScoreUI extends JFrame {
         });
 
         // Display top 5 scores in JLabel
-        StringBuilder sb = new StringBuilder("<html><center><font size=5><b></b></font><br><br>");
+        StringBuilder sb = new StringBuilder("<html><center><font size=50><b></b></font><br><br>");
         int count = 0;
         for (JSONObject scoreObj : scoreList) {
-            sb.append(scoreObj.getString("name")).append(": ").append(scoreObj.getInteger("score")).append("<br>");
+            sb.append("<span style='font-size: 18px;'>").append(scoreObj.getString("name")).append(": </span>")
+                .append("&nbsp;&nbsp;&nbsp;&nbsp;").append("<span style='font-size: 20px;'>").append(scoreObj.getInteger("score")).append("</span>")
+                .append("<br><br><br>");
             count++;
             if (count == 5) {
                 break;
