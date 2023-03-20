@@ -18,7 +18,7 @@ public class HomeUI extends JFrame {
         int buttonX = (frameWidth - buttonWidth) / 2;
         int buttonY = (frameHeight - buttonHeight) / 2;
 
-        ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/casual _ 266, 58 px.jpg");
+        ImageIcon transparentIcon1 = new ImageIcon("src/main/resources/Button 266, 58 px/Start  266, 58 px.png");
         ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png"));
 
