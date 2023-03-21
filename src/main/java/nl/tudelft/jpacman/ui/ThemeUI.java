@@ -1,6 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
 import nl.tudelft.jpacman.Launcher;
+import nl.tudelft.jpacman.sound.playSound;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 
 import javax.swing.*;
@@ -74,20 +75,24 @@ public class ThemeUI extends JFrame {
         DefaultButton.addActionListener(e -> {
             imageLabel.setIcon(DefaultImage);
             PacManSprites.themeNUM=0;
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
         VividButton.addActionListener(e -> {
             imageLabel.setIcon(VividImage);
             PacManSprites.themeNUM=1;
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         CityButton.addActionListener(e -> {
             imageLabel.setIcon(CityImage);
             PacManSprites.themeNUM=2;
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         SpaceButton.addActionListener(e -> {
             imageLabel.setIcon(SpaceImage);
             PacManSprites.themeNUM=3;
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton PreviousButton = new JButton(transparentIcon4);
@@ -97,6 +102,8 @@ public class ThemeUI extends JFrame {
         PreviousButton.addActionListener(e -> {
             DifficultyUI diffUI = new DifficultyUI(stage);
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton NextButton = new JButton(transparentIcon5);
@@ -106,6 +113,8 @@ public class ThemeUI extends JFrame {
         NextButton.addActionListener(e -> {
             new Launcher().launch();
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         DefaultButton.setBounds(buttonX-200, buttonY-110, buttonWidth, buttonHeight);

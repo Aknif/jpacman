@@ -1,5 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
+import nl.tudelft.jpacman.sound.playSound;
+
 import javax.swing.*;
 
 public class HomeUI extends JFrame {
@@ -31,6 +33,8 @@ public class HomeUI extends JFrame {
             MapUI newMapUI = new MapUI();
             newMapUI.setVisible(true);
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton ScoreButton = new JButton(transparentIcon2);
@@ -42,6 +46,8 @@ public class HomeUI extends JFrame {
             ScoreUI scoreUI = new ScoreUI();
             scoreUI.setVisible(true);
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         CasualButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);

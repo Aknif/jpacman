@@ -2,6 +2,7 @@ package nl.tudelft.jpacman.ui;
 
 import nl.tudelft.jpacman.level.Pellet;
 import nl.tudelft.jpacman.level.Player;
+import nl.tudelft.jpacman.sound.playSound;
 import top.jfunc.json.impl.JSONObject;
 
 import javax.swing.*;
@@ -103,6 +104,8 @@ public class SaveUI extends JFrame {
             }
             HomeUI homeUI = new HomeUI();
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
 

@@ -3,6 +3,8 @@ package nl.tudelft.jpacman.level;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.points.PointCalculator;
+import nl.tudelft.jpacman.sound.playSound;
+import nl.tudelft.jpacman.ui.ThemeUI;
 
 /**
  * A simple implementation of a collision map for the JPacman player.
@@ -77,6 +79,7 @@ public class PlayerCollisions implements CollisionMap {
         pointCalculator.collidedWithAGhost(player, ghost);
         player.setAlive(false);
         player.setKiller(ghost);
+        playSound.play("src/main/resources/SOUNDPACK/Pacman-death-sound.wav");
     }
 
     /**
@@ -88,8 +91,9 @@ public class PlayerCollisions implements CollisionMap {
      *           The pellet involved in the collision.
      */
     public void playerVersusPellet(Player player, Pellet pellet) {
+
         pointCalculator.consumedAPellet(player, pellet);
         pellet.leaveSquare();
+        playSound.play("src/main/resources/SOUNDPACK/waka.wav");
     }
-
 }

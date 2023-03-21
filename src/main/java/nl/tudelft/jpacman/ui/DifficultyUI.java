@@ -2,6 +2,7 @@ package nl.tudelft.jpacman.ui;
 
 import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.level.LevelFactory;
+import nl.tudelft.jpacman.sound.playSound;
 
 import javax.swing.*;
 
@@ -91,6 +92,7 @@ public class DifficultyUI extends JFrame {
             easyButton.setIcon(greenE);
             normalButton.setIcon(transparentIcon2);
             hardButton.setIcon(transparentIcon3);
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         normalButton.addActionListener(e -> {
@@ -115,6 +117,7 @@ public class DifficultyUI extends JFrame {
             easyButton.setIcon(transparentIcon1);
             normalButton.setIcon(greenN);
             hardButton.setIcon(transparentIcon3);
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         hardButton.addActionListener(e -> {
@@ -139,6 +142,7 @@ public class DifficultyUI extends JFrame {
             easyButton.setIcon(transparentIcon1);
             normalButton.setIcon(transparentIcon2);
             hardButton.setIcon(greenH);
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton PreviousButton = new JButton(transparentIcon4);
@@ -149,6 +153,8 @@ public class DifficultyUI extends JFrame {
         PreviousButton.addActionListener(e -> {
             MapUI mapUI = new MapUI();
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton NextButton = new JButton(transparentIcon5);
@@ -180,6 +186,8 @@ public class DifficultyUI extends JFrame {
                 ThemeUI theme = new ThemeUI(stage);
                 dispose();
             }
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         easyButton.setBounds(buttonX-200, buttonY-75, buttonWidth, buttonHeight);

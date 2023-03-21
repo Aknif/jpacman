@@ -1,6 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
 import nl.tudelft.jpacman.Launcher;
+import nl.tudelft.jpacman.sound.playSound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,6 +47,8 @@ public class RetryUI extends JFrame {
             }
             new Launcher().launch();
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton MainButton = new JButton("Main Menu");
@@ -57,6 +60,8 @@ public class RetryUI extends JFrame {
         MainButton.addActionListener(e -> {
             SaveUI saveUI = new SaveUI();
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         RetryButton.setBounds(buttonX -9, buttonY, buttonWidth, buttonHeight);

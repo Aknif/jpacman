@@ -1,5 +1,7 @@
 package nl.tudelft.jpacman.ui;
 
+import nl.tudelft.jpacman.sound.playSound;
+
 import javax.swing.*;
 
 public class MapUI extends JFrame {
@@ -99,6 +101,7 @@ public class MapUI extends JFrame {
             Map4Button.setIcon(transparentIcon4);
             Map5Button.setIcon(transparentIcon5);
 
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         Map2Button.addActionListener(e -> {
@@ -109,6 +112,8 @@ public class MapUI extends JFrame {
             Map3Button.setIcon(transparentIcon3);
             Map4Button.setIcon(transparentIcon4);
             Map5Button.setIcon(transparentIcon5);
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         Map3Button.addActionListener(e -> {
@@ -119,6 +124,8 @@ public class MapUI extends JFrame {
             Map3Button.setIcon(green3);
             Map4Button.setIcon(transparentIcon4);
             Map5Button.setIcon(transparentIcon5);
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         Map4Button.addActionListener(e -> {
@@ -129,6 +136,8 @@ public class MapUI extends JFrame {
             Map3Button.setIcon(transparentIcon3);
             Map4Button.setIcon(green4);
             Map5Button.setIcon(transparentIcon5);
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         Map5Button.addActionListener(e -> {
@@ -139,6 +148,8 @@ public class MapUI extends JFrame {
             Map3Button.setIcon(transparentIcon3);
             Map4Button.setIcon(transparentIcon4);
             Map5Button.setIcon(green5);
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
 
@@ -150,6 +161,8 @@ public class MapUI extends JFrame {
         PreviousButton.addActionListener(e -> {
             HomeUI homeUI = new HomeUI();
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
         JButton NextButton = new JButton(transparentIcon7);
@@ -161,6 +174,8 @@ public class MapUI extends JFrame {
             DifficultyUI difficultyUI = new DifficultyUI(stage);
             difficultyUI.setVisible(true);
             dispose();
+
+            playSound.play("src/main/resources/SOUNDPACK/menuSelected.wav");
         });
 
 
