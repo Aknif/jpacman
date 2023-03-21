@@ -41,7 +41,7 @@ public class JpacmanTest_Sprint2_UC004 {
      */
     @SuppressWarnings({"magicnumber", "methodlength", "PMD.JUnitTestContainsTooManyAsserts"})
     @Test
-    @DisplayName("TS063_TC01 - SmokeTest")
+    @DisplayName("UC004_TS021_TC01 - SmokeTest")
     void smokeTest() throws InterruptedException {
         this.launcher.levelMap = "/board.txt";
         Game game = launcher.getGame();

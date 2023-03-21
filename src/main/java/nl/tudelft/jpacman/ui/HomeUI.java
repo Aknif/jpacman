@@ -22,12 +22,12 @@ public class HomeUI extends JFrame {
         ImageIcon transparentIcon2 = new ImageIcon("src/main/resources/Button 266, 58 px/score _ 266, 58 px.jpg");
         JLabel backgroundLabel = new JLabel(new ImageIcon("src/main/resources/pacman_bg/Main_bg _ 800, 600 px.png"));
 
-        JButton CasualButton = new JButton(transparentIcon1);
-        CasualButton.setBorderPainted(false); // Remove the border
-        CasualButton.setContentAreaFilled(false); // Remove the background color
-        CasualButton.setFocusPainted(false); // Remove the focus border
+        JButton StartButton = new JButton(transparentIcon1);
+        StartButton.setBorderPainted(false); // Remove the border
+        StartButton.setContentAreaFilled(false); // Remove the background color
+        StartButton.setFocusPainted(false); // Remove the focus border
 
-        CasualButton.addActionListener(e -> {
+        StartButton.addActionListener(e -> {
             MapUI newMapUI = new MapUI();
             newMapUI.setVisible(true);
             dispose();
@@ -44,8 +44,8 @@ public class HomeUI extends JFrame {
             dispose();
         });
 
-        CasualButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
-        backgroundLabel.add(CasualButton);
+        StartButton.setBounds(buttonX, buttonY, buttonWidth, buttonHeight);
+        backgroundLabel.add(StartButton);
 
         ScoreButton.setBounds(buttonX, buttonY+100, buttonWidth, buttonHeight);
         backgroundLabel.add(ScoreButton);
