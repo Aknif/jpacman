@@ -65,44 +65,50 @@ public class SaveUI extends JFrame {
         summitButton.addActionListener(e -> {
 
             String name = textField.getText();
+            int score = Player.getScore();
             if(name.isEmpty()){
                 name = "Anonymous";
             }
-            int score = Player.getScore();
+            if(name.length() > 15){
+                JOptionPane.showMessageDialog(SaveUI.this, "Character should be below 16 characters");
+            }
+            else {
 
-            JSONObject json = new JSONObject();
-            json.put("name", name);
-            json.put("score", score);
 
-            try (RandomAccessFile file = new RandomAccessFile("scores.json", "rw")) {
-                long length = file.length();
-                if (length > 0) {
-                    file.seek(length - 1); // move file pointer to last byte
-                    byte lastByte = file.readByte();
-                    if (lastByte == ']') {
-                        file.seek(length - 1); // move file pointer back one byte
-                        file.writeBytes(","); // write comma separator
+                JSONObject json = new JSONObject();
+                json.put("name", name);
+                json.put("score", score);
+
+                try (RandomAccessFile file = new RandomAccessFile("scores.json", "rw")) {
+                    long length = file.length();
+                    if (length > 0) {
+                        file.seek(length - 1); // move file pointer to last byte
+                        byte lastByte = file.readByte();
+                        if (lastByte == ']') {
+                            file.seek(length - 1); // move file pointer back one byte
+                            file.writeBytes(","); // write comma separator
+                        } else {
+                            file.seek(length); // move file pointer to end of file
+                        }
                     } else {
-                        file.seek(length); // move file pointer to end of file
+                        file.writeBytes("["); // write opening bracket
                     }
-                } else {
-                    file.writeBytes("["); // write opening bracket
+                    file.writeBytes(json.toString()); // write JSON object
+                    file.writeBytes("]"); // write closing bracket
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
-                file.writeBytes(json.toString()); // write JSON object
-                file.writeBytes("]"); // write closing bracket
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
 
-            JOptionPane.showMessageDialog(SaveUI.this, "Score saved successfully!");
-            Window[] windows = Window.getWindows();
-            for (Window window : windows) {
-                if (window instanceof JFrame) {
-                    window.dispose();
+                JOptionPane.showMessageDialog(SaveUI.this, "Score saved successfully!");
+                Window[] windows = Window.getWindows();
+                for (Window window : windows) {
+                    if (window instanceof JFrame) {
+                        window.dispose();
+                    }
                 }
+                HomeUI homeUI = new HomeUI();
+                dispose();
             }
-            HomeUI homeUI = new HomeUI();
-            dispose();
         });
 
 
