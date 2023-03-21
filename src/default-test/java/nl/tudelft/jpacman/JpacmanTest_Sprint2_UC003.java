@@ -45,8 +45,19 @@ public class JpacmanTest_Sprint2_UC003 {
         return launcher.getGame();
     }
 
+
     @Test
-    @DisplayName("UC004_TS032_TC01 - Move towards the hole where the pellet is located.")
+    @DisplayName("UC003_TS014_TC01 - The player presses the \"Stop\" button.")
+        void UC003_TS014_TC01() {
+        launcher.launch();
+        getGame().stop();
+
+        Game game = launcher.getGame();
+        assertThat(game.isInProgress()).isFalse();
+    }
+
+    @Test
+    @DisplayName("UC003_TS015_TC01 - The player presses the \"Start\" button again.")
     void UC003_TS015_TC01() {
         launcher.launch();
         getGame().stop();
@@ -55,28 +66,10 @@ public class JpacmanTest_Sprint2_UC003 {
         Game game = launcher.getGame();
         assertThat(game.isInProgress()).isTrue();
     }
-    @Test
-    @DisplayName("TS033_TC01 - Move into an empty space")
-        void UC003_TS016_TC01() {
-        launcher.launch();
-        getGame().stop();
 
-        Game game = launcher.getGame();
-        assertThat(game.isInProgress()).isFalse();
-    }
     @Test
-    @DisplayName("TS033_TC01 - Move into an empty space")
-    void UC003_TS017_TC01() {
-        //Test restart button
-    }
-    @Test
-    @DisplayName("TS033_TC01 - Move into an empty space")
-    void UC003_TS018_TC01() {
-        //Test home button
-    }
-    @Test
-    @DisplayName("TS002_TC01 - Move towards the hole where the pellet is located.")
-    void TS002_TC019_PlayerMove() {
+    @DisplayName("UC003_TS016_TC01 - Move towards the hole where the pellet is located.")
+    void UC003_TS016_PlayerMove() {
         launcher.launch();
         getGame().start();
 
@@ -88,8 +81,8 @@ public class JpacmanTest_Sprint2_UC003 {
         assertThat(player.getScore()).isEqualTo(10);
     }
     @Test
-    @DisplayName("TS002_TC02 - Move towards free space")
-    void TS002_TC020_PlayerMove() {
+    @DisplayName("UC003_TS017_TC01 - Move towards free space")
+    void UC003_TS017_PlayerMove() {
         launcher.launch();
         getGame().start();
 
@@ -105,8 +98,8 @@ public class JpacmanTest_Sprint2_UC003 {
         assertThat(player.getScore()).isEqualTo(10);
     }
     @Test
-    @DisplayName("TS002_TC03 - Move towards a wall block")
-    void TS002_TC021_PlayerMove() {
+    @DisplayName("UC003_TS018_TC01 - Move towards a wall block")
+    void UC003_TS018_PlayerMove() {
         launcher.launch();
         getGame().start();
 
@@ -119,8 +112,8 @@ public class JpacmanTest_Sprint2_UC003 {
         assertThat(player.getScore()).isEqualTo(0);
     }
     @Test
-    @DisplayName("TS002_TC04 - Move into a block with ghosts.")
-    void TS002_TC022_PlayerMove() {
+    @DisplayName("UC003_TS019_TC01 - Move into a block with ghosts.")
+    void UC003_TS019_PlayerMove() {
         launcher.launch();
         getGame().start();
 
@@ -135,8 +128,8 @@ public class JpacmanTest_Sprint2_UC003 {
         assertThat(game.isInProgress()).isFalse();
     }
     @Test
-    @DisplayName("TS002_TC05 - Collect all Pellet points")
-    void TS002_TC023_PlayerMove() {
+    @DisplayName("UC003_TS020_TC01 - Collect all Pellet points")
+    void UC003_TS020_PlayerMove() {
         launcher.launch();
         getGame().start();
 
